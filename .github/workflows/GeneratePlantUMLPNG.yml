@@ -1,0 +1,23 @@
+name: Convert PlantUML to PNG
+on: push
+jobs:
+  plantuml_jar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 2
+
+      - name: Call plantuml .jar
+        run: find . -type f | while read filename; do [[ $filename =~ .*\.du ]] && (echo Convert $filename:\    java -jar plantuml.jar $filename && java -jar .github/workflows/plantuml.jar $filename) || true; done;
+     
+      - name: Push Local Changes
+        uses: stefanzweifel/git-auto-commit-action@v4.1.2 
+        with: 
+          commit_user_name: "aadedjou"
+          commit_user_email: "aadedjoumon@gmail.com"
+          commit_message: "Generate PNG images of PlantUML diagrams" 
+          branch: ${{ github.head_ref }}
+
+      - name: Done !
+        run: echo Successfully generated .png files !
