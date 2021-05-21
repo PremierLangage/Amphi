@@ -1,0 +1,75 @@
+@startuml
+File "0, n" <--> "1" Resource : index
+File "1" --> "1" ResourceStorage
+
+
+Circle "0, n" --> "0, n" User
+Circle "0, n" --> "0, 1" Circle
+
+
+Resource "0, n" --> "1" Circle
+Resource "0, n" --> "1" User
+
+
+VersionStatus "1, n" --> "1" Resource
+VersionStatus "0, n" --> "1" User
+VersionStatus "1" --> "1" Status
+VersionStatus "1" --> "1" Tags
+VersionStatus "0, n" --> "0, 1" VersionStatus
+
+
+class Resource extends Models {
+- String name
+- String directory
+- Boolean isPublish
+- User creator
+}
+
+class Circle extends Models{
+- Boolean isPublish
+}
+
+class VersionStatus extends Models {
+- String tag_git
+- int version
+- Tags tags
+- String description
+- Date date
+}
+
+class Activity extends Resource {
+- ...
+}
+
+class Fichier extends Resource {
+- ...
+}
+
+class Exo extends Resource {
+- ...
+}
+
+class User extends Models {
+- ...
+}
+
+class File extends Models {
+- ResourceStorage resourceStorage
+}
+
+Enum Status {
+- DRAFT
+- READY
+- DEPRECATED
+- BUGGED
+- NOT_TESTED
+}
+
+class Tags {
+- Set<String> tags
+}
+
+
+Class ResourceStorage extends FileSystemStorage {
+}
+@enduml
