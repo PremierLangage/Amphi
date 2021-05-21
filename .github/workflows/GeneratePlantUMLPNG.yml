@@ -8,6 +8,9 @@ jobs:
         with:
           fetch-depth: 2
 
+      - name: Setup Graphviz
+        uses: ts-graphviz/setup-graphviz@v1
+        
       - name: Call plantuml .jar
         run: find . -type f | while read filename; do [[ $filename =~ .*\.du ]] && (echo Convert $filename:\    java -jar plantuml.jar $filename && java -jar .github/workflows/plantuml.jar $filename) || true; done;
      
