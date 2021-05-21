@@ -10,10 +10,13 @@ jobs:
 
       - name: Setup Graphviz
         uses: ts-graphviz/setup-graphviz@v1
-        
-      - name: Call plantuml .jar
-        run: find . -type f | while read filename; do [[ $filename =~ .*\.du ]] && (echo Convert $filename:\    java -jar plantuml.jar $filename && java -jar .github/workflows/plantuml.jar $filename) || true; done;
-     
+
+      - id: files
+        uses: jitterbit/get-changed-files@v1
+
+      - name: Call plantuml .jar on committed files
+        run: for filename in ${{ steps.files.outputs.all }}; do [[ $filename =~ .*\.du ]] && (echo Convert $filename:\    java -jar plantuml.jar $filename && java -jar .github/workflows/plantuml.jar $filename) || true; done;
+
       - name: Push Local Changes
         uses: stefanzweifel/git-auto-commit-action@v4.1.2 
         with: 
