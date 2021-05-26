@@ -3,17 +3,17 @@
 class Amphi {
     + Titre
     + **Teacher** Maître de conf
-    + **Intervenant[ ]** intervenants
+    + ~~**Intervenant[ ]** intervenants~~
     + **Participant[ ]** autorisés
     + Horaire début
-    + Horaire fin
+    + ~~Horaire fin~~
 
     + **Cours** cours
-    + **Exercice[ ]** exercices
+    + ~~**Exercice[ ]** exercices~~
 
-    - password
-    - **int** maxParticipants
-    - **Participant[ ]** exclus
+    - ~~password~~
+    - ~~**int** maxParticipants~~
+    - ~~**Participant[ ]** exclus~~
 }
 
 class User {
@@ -46,10 +46,10 @@ class Exercice extends ActivitePL {
 }
 
 enum EndType {
-   + *NONE*
-   + *TIME*
-   + *NB_ANSWERS*
-   + *NB_CORRECT_ANS*
+   + //NONE//
+   + //TIME//
+   + //NB_ANSWERS//
+   + //NB_CORRECT_ANS//
 } 
 
 Teacher "0, n" --> "1" Amphi  : organise
