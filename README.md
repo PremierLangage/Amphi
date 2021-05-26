@@ -63,7 +63,7 @@ Les participants peuvent alterner entre 2 modes:
 - 👁 Un mode **flux** qui ne leur permet que de voir la slide courante diffusée par le professeur
 
 - 🔓 Un mode **navigation libre** leur permettant de naviguer parmi toutes les slides déjà diffusées par le professeur  
-Le professeur peut toutefois 🔐 **imposer le mode flux** pour tous les participants (et le verrouiller) quand il en ressent le besoin.
+Le professeur peut toutefois 🔐 **imposer le mode flux** pour tous les participants (et le verrouiller) s'il en ressent le besoin.
 
 Lorsqu'un exercice est lancé, le participant n'a plus accès aux slides. Il est face à la page de l'exercice jusqu'à ce qu'il le finisse ou que le professeur rebascule l'Amphi en **📖 mode cours**.
 
