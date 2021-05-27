@@ -1,3 +1,5 @@
+<center>
+
 # **Amphi**
 
 ### ***Outil interactif de conférences en présentiel / distanciel***
@@ -6,6 +8,7 @@
 *La particularité de ces amphis réside dans la possibilité pour le professeur de spontanément **diffuser des exercices PLaTon** durant la conférence, qui seront affectés à tous les participants.*  
 
 ![](./amphi-app/src/assets/amphi_screen.png)
+</center>
 
 ## CRÉATION
 
@@ -76,9 +79,10 @@ Une fois l'exercice fini pour tous, l'**écran de fin** est diffusé à tous les
 ## FIN DE L'ACTIVITÉ
 
 Après avoir atteint le **dernier slide** de sa présentation, l'application propose au professeur un bouton **mettant fin** à l'Amphi.  
-Cette action déconnecte le professeur et tous les participants de l'Amphi. Il devient *inaccessible* pour tout le monde sauf le professeur.
+Cette action déconnecte le professeur et tous les participants de l'Amphi. 
 
-L'Amphi n'est toutefois pas ***supprimé***: ses paramètres pourront être modifiés  et il pourra se voir réactivé avec de nouveaux paramètres (nouveau cours, liste d'exercice mise à jour, etc.)  
+L'Amphi *désactivé* n'est toutefois pas ***supprimé***: il sera toujours disponible par les participants autorisés, qui pourront relire les slides et refaire les exercices qui ont été proposés.  
+Les paramètres de l'Amphi pourront aussi être modifiés par le professeur et il pourra se voir réactivé avec de nouveaux paramètres (nouveau cours, liste d'exercice mise à jour, etc.)  
 Il peut néanmoins être **manuellement supprimé** par le professeur.
 
-❌ Si le professeur se déconnecte sans avoir mis fin à l'activité, celle-ci sera indisponible pour tous au bout de 30 minutes.
+❌ Si le professeur se déconnecte sans avoir mis fin à l'activité, celle-ci sera désactivée au bout de 30 minutes.
