@@ -8,11 +8,14 @@
   @extend .line;
 }
 
+$slide-width: 700px;
+$slide-height: 400px;
+
 .grid-container {
   height: 100%;
   display: grid;
   overflow: hidden;
-  grid-template-columns: 1.3fr .7fr;
+  grid-template-columns: 1.3fr 375px;
   grid-template-rows: .1fr 1.8fr 2.2fr .9fr;
   gap: 0px 0px;
   grid-template-areas:
@@ -115,33 +118,35 @@
 
 
 .current-slide-container {
-  @extend .vertical-center;
+  @extend .flex;
   grid-area: current;
-  padding: 2.5%;
+  padding: 0 2.5%;
 
-  .slide img {
-    max-height: 400px;
-  }
+  .container {
+    @extend .vertical-center;
+    height: 100%;
+    max-width: $slide-width;
 
-  .navigation-bar {
-    @extend .center;
-    $nav-height: 50px;
-    $button-size: $nav-height * 4 / 5;
+    .navigation-bar {
+      @extend .center;
+      $nav-height: 50px;
+      $button-size: $nav-height * 4 / 5;
 
-    height: $nav-height;
-    margin: 10px 0;
-    padding: ($nav-height - $button-size) / 2 0;
-    border-radius: $nav-height / 2;
-    background-color: rgba($color: $fake-white, $alpha: .1);
+      height: $nav-height;
+      margin: 10px 0;
+      padding: ($nav-height - $button-size) / 2 0;
+      border-radius: $nav-height / 2;
+      background-color: rgba($color: $fake-white, $alpha: .1);
 
-    button {
-      margin: 0 7.5px;
-      height: $button-size;
-      width: $button-size;
-      box-shadow: none;
+      button {
+        margin: 0 7.5px;
+        height: $button-size;
+        width: $button-size;
+        box-shadow: none;
 
-      mat-icon {
-        @extend .white;
+        mat-icon {
+          @extend .white;
+        }
       }
     }
   }
@@ -151,7 +156,7 @@
   @extend .vertical-center,
   .dark-bg;
   grid-area: next-slide;
-  padding: 5%;
+  padding: 0 15px;
 
   .slide {
     opacity: 40%;
@@ -196,7 +201,8 @@
     }
 
     mat-tab-group {
-      @extend .center, .line;
+      @extend .center,
+      .line;
 
       .mat-tab-label {
         background-color: rgba($color: $primary-color, $alpha: 1);

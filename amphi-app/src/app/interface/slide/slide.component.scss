@@ -1,1 +1,8 @@
 @import "../interface.component";
+
+img {
+  max-width: $slide-width;
+  max-height: $slide-height;
+  width: auto;
+  height: auto;
+}
