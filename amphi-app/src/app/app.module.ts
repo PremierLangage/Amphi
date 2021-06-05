@@ -9,30 +9,38 @@ import { ExitDialogComponent } from './interface/exit-dialog/exit-dialog.compone
 
 // MATERIAL
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { InterfaceEleveComponent } from './interface-eleve/interface-eleve.component';
+import { InterfaceProfComponent } from './interface-prof/interface-prof.component';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
+import { SlideComponent } from './interface/slide/slide.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
-import { SlideComponent } from './interface/slide/slide.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    InterfaceComponent,
+    InterfaceEleveComponent,
+    InterfaceProfComponent,
     ExitDialogComponent,
+    InterfaceComponent,
     ExerciceComponent,
-    SlideComponent
+    SlideComponent,
+    AppComponent,
   ],
   imports: [
+    BrowserAnimationsModule,
+    MatSlideToggleModule,
+    AppRoutingModule,
+    MatDialogModule,
+    MatButtonModule,
     MatIconModule,
     MatTabsModule,
     BrowserModule,
-    MatDialogModule,
-    MatButtonModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
+    FormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }

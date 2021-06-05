@@ -1,9 +1,4 @@
-import { ExitDialogComponent } from './exit-dialog/exit-dialog.component';
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { Exercice } from '../models/exercices';
-import { interval } from 'rxjs';
-import { ExerciceService } from '../exercice.service';
 
 @Component({
   selector: 'app-interface',
@@ -11,36 +6,11 @@ import { ExerciceService } from '../exercice.service';
   styleUrls: ['./interface.component.scss']
 })
 export class InterfaceComponent implements OnInit {
-  controlPanelHidden : boolean = false;
-  currentSeconds = new Date().toLocaleTimeString().split(":").pop();
-  currentTime : String = new Date().toLocaleTimeString().slice(0, -3);
-  exercices : Exercice[] | undefined = new ExerciceService().getExercices();
-  profName : String = "Champalle";
+  prof_view : boolean = true;
 
-  updateTime = interval(1000).subscribe(
-    () => { this.currentTime = new Date().toLocaleTimeString().slice(0, -3); }
-  );
-
-  updateSeconds = interval(1000).subscribe(
-    () => { this.currentSeconds = new Date().toLocaleTimeString().split(":").pop(); }
-  );
-
-  constructor(public dialog: MatDialog) {
+  constructor() {
   }
 
   ngOnInit(): void {
-  }
-
-  openDialog(): void {
-    this.dialog.open(ExitDialogComponent, { width: '350px' });
-  }
-
-  onKeypressEvent(event: any){
-    console.log(event.target.value);
-  }
-
-  toggleControlPanel() {
-    this.controlPanelHidden = !this.controlPanelHidden;
-    console.log(this.controlPanelHidden);
   }
 }
