@@ -1,5 +1,13 @@
 @import "../../styles";
 
+.dark-bg {
+  background-color: rgba(15, 15, 15, .3);
+}
+
+.slide img {
+  @extend .line;
+}
+
 $platon-logo-size: 40px;
 
 .toggle-view {
@@ -13,6 +21,7 @@ $platon-logo-size: 40px;
     @extend .center;
     margin: 0 10px;
   }
+
   span {
     font-size: 16pt;
   }

@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./interface.component.scss']
 })
 export class InterfaceComponent implements OnInit {
-  prof_view : boolean = true;
+  prof_view : boolean = false;
 
   constructor() {
   }
