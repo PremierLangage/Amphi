@@ -1,0 +1,241 @@
+@import "../interface/interface.component";
+
+.dark-bg {
+  background-color: rgba(15, 15, 15, .3);
+}
+
+.slide img {
+  @extend .line;
+}
+
+$slide-width: 700px;
+$slide-height: 400px;
+
+.grid-container {
+  height: 100%;
+  display: grid;
+  overflow: hidden;
+  grid-template-columns: 1.3fr 375px;
+  grid-template-rows: .1fr 1.8fr 2.2fr .9fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "top-bar top-info"
+    "current next-slide"
+    "current control-panel"
+    "amphi-title control-panel";
+}
+
+
+
+.top-bar {
+  grid-area: top-bar;
+  padding: 2.5%;
+  min-height: calc($platon-logo-size + 2.5%);
+
+  .logo-box {
+    @extend .center;
+    width: $platon-logo-size;
+    height: $platon-logo-size;
+    padding: 5px;
+    background-color: white;
+    border-radius: 5px;
+    margin-bottom: 10px;
+
+    .logo {
+      height: 100%;
+    }
+  }
+}
+
+.top-info {
+  @extend %bolder,
+  .dark-bg;
+  grid-area: top-info;
+  padding: 10px;
+
+  div {
+    @extend .center;
+    font-size: 20pt;
+
+    .participants {
+      font-size: 14pt;
+      color: $primary-color;
+    }
+
+    .time {
+      @extend %sans;
+    }
+
+    .seconds {
+      color: rgba($color: $fake-white, $alpha: .4);
+    }
+
+    mat-icon,
+    span {
+      margin: 0 5px;
+    }
+
+    .exit {
+      margin-left: 10px;
+      background-color: white;
+      transform: scale(.8);
+
+      &:hover {
+        transform: scale(.95);
+      }
+    }
+  }
+}
+
+.amphi-title {
+  @extend .vertical-center;
+  grid-area: amphi-title;
+  padding: 2.5%;
+
+  h2 {
+    color: $primary-color;
+    margin: 0;
+  }
+
+  h1 {
+    font-size: 36pt;
+    text-shadow: -5px 5px rgba($color: black, $alpha: .3);
+    margin: 0;
+  }
+
+  .copyright {
+    font-size: 75%;
+  }
+
+  .version {
+    @extend %sans;
+    font-size: 16pt;
+    opacity: .7;
+  }
+}
+
+
+
+.current-slide-container {
+  @extend .flex;
+  grid-area: current;
+  padding: 0 2.5%;
+
+  .container {
+    @extend .vertical-center;
+    height: 100%;
+    max-width: $slide-width;
+
+    .navigation-bar {
+      @extend .center;
+      $nav-height: 50px;
+      $button-size: $nav-height * 4 / 5;
+
+      height: $nav-height;
+      margin: 10px 0;
+      padding: ($nav-height - $button-size) / 2 0;
+      border-radius: $nav-height / 2;
+      background-color: rgba($color: $fake-white, $alpha: .1);
+
+      button {
+        margin: 0 7.5px;
+        height: $button-size;
+        width: $button-size;
+        box-shadow: none;
+
+        mat-icon {
+          @extend .white;
+        }
+      }
+    }
+  }
+}
+
+.next-slide-container {
+  @extend .vertical-center,
+  .dark-bg;
+  grid-area: next-slide;
+  padding: 0 15px;
+
+  .slide {
+    opacity: 40%;
+
+    img {
+      max-width: 300px;
+    }
+  }
+
+  h2 {
+    margin-top: 0;
+  }
+}
+
+.control-panel-container {
+  @extend .dark-bg;
+  grid-area: control-panel;
+  padding: 15px 15px 0 15px;
+
+  $title-bar-height: 25px;
+
+  #control-panel {
+    @extend .flex-column;
+    height: 100%;
+    transition: .4s;
+
+    .title-bar {
+      @extend .flex;
+      height: $title-bar-height;
+      background-color: $primary-color;
+      border-radius: 15px 15px 0 0;
+
+      .hide-arrow {
+        cursor: pointer;
+        margin: 0 10px;
+        transition: .2s;
+      }
+
+      .flip-arrow {
+        transform: rotate(180deg);
+      }
+    }
+
+    mat-tab-group {
+      @extend .center,
+      .line;
+
+      .mat-tab-label {
+        background-color: rgba($color: $primary-color, $alpha: 1);
+      }
+
+      mat-icon {
+        color: $fake-white;
+
+        &.home {
+          margin: 0 7.5px;
+          transform: scale(1.4);
+        }
+      }
+    }
+
+    .panel {
+      height: inherit;
+      padding: 0 15px;
+      background-color: rgba($color: $primary-color, $alpha: .2);
+      transition: .6s;
+
+      h1 {
+        text-align: center;
+        font-size: 16pt;
+        color: rgba($color: $fake-white, $alpha: .8);
+      }
+
+      &:hover {
+        background-color: rgba($color: $primary-color, $alpha: .25);
+      }
+    }
+  }
+
+  .hide-panel {
+    transform: translateY(100%) translateY(-$title-bar-height);
+  }
+}

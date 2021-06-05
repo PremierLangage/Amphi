@@ -1,0 +1,118 @@
+<div class="grid-container" (keypress)="onKeypressEvent($event)">
+  <div class="top-bar">
+    <a class="logo-box" href="https://pl.u-pem.fr/activity/play/0/" target="_blank" rel="noopener noreferrer">
+      <img class="logo" src="../../assets/platon_logo_black.png">
+    </a>
+  </div>
+
+  <div class="top-info">
+    <div class="center">
+      <span class="center participants">
+        <mat-icon>people</mat-icon> 47
+      </span>
+      <div class="spacer"></div>
+      <span class="seconds"> {{ currentSeconds }} </span>
+      <span class="time"> {{ currentTime }} </span>
+
+      <button class="exit" mat-icon-button color="warn" (click)="openDialog()">
+        <mat-icon>power_settings_new</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <div class="amphi-title">
+    <div class="spacer"></div>
+    <h2>AMPHI <sup class="copyright">©</sup> <span class="version"> v1.0</span> </h2>
+    <h1>TITRE DU COURS</h1>
+  </div>
+
+  <div class="current-slide-container">
+    <div class="spacer"></div>
+    <div class="container">
+    <div class="spacer"></div>
+    <div class="slide">
+      <cours-slide></cours-slide>
+      </div>
+      <div class="navigation-bar">
+        <button mat-fab color="primary">
+          <mat-icon>arrow_back</mat-icon>
+        </button>
+        <button mat-fab color="primary">
+          <mat-icon>arrow_forward</mat-icon>
+        </button>
+        <div class="spacer"></div>
+        <button mat-fab color="primary">
+          <mat-icon>mic</mat-icon>
+        </button>
+        <button mat-fab color="primary">
+          <mat-icon>remove_red_eye</mat-icon>
+        </button>
+      </div>
+      <div class="spacer"></div>
+      <div class="spacer"></div>
+    </div>
+    <div class="spacer"></div>
+  </div>
+
+  <div class="next-slide-container">
+    <div class="slide">
+      <cours-slide></cours-slide>
+    </div>
+    <h2>NEXT</h2>
+  </div>
+
+  <div class="control-panel-container">
+    <div id="control-panel" [ngClass]="controlPanelHidden ? 'hide-panel' : ''">
+      <div class="title-bar" (click)="toggleControlPanel()">
+        <div class="spacer"></div>
+        <mat-icon class="hide-arrow" [ngClass]="controlPanelHidden ? 'flip-arrow' : ''">
+          keyboard_arrow_down
+        </mat-icon>
+      </div>
+
+      <div class="panel">
+        <mat-tab-group [selectedIndex]="3">
+
+          <mat-tab>
+            <ng-template mat-tab-label>
+              <mat-icon>chat</mat-icon>
+            </ng-template>
+            <h1 class="white"> Conversation </h1>
+          </mat-tab>
+
+          <mat-tab>
+            <ng-template mat-tab-label>
+              <mat-icon>people</mat-icon>
+            </ng-template>
+            <h1 class="white"> Participants </h1>
+          </mat-tab>
+
+          <mat-tab>
+            <ng-template mat-tab-label>
+              <mat-icon class="home">home</mat-icon>
+            </ng-template>
+            <h1>Bonjour, M. <span class="white">{{ profName }}</span>.</h1>
+          </mat-tab>
+
+          <mat-tab>
+            <ng-template mat-tab-label>
+              <mat-icon>play_circle_outline</mat-icon>
+            </ng-template>
+            <h1>Vos<span class="white"> exercices </span></h1>
+            <div *ngFor="let exo of exercices">
+              <platon-exercice [exercice]=exo></platon-exercice>
+            </div>
+          </mat-tab>
+
+          <mat-tab>
+            <ng-template mat-tab-label>
+              <mat-icon>settings</mat-icon>
+            </ng-template>
+            <h1 class="white"> Paramètres </h1>
+          </mat-tab>
+
+        </mat-tab-group>
+      </div>
+    </div>
+  </div>
+</div>
