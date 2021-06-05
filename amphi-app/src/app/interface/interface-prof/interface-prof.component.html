@@ -1,22 +1,16 @@
-<div class="grid-container" (keypress)="onKeypressEvent($event)">
+<div class="grid-container">
   <div class="top-bar">
-    <a class="logo-box" href="https://pl.u-pem.fr/activity/play/0/" target="_blank" rel="noopener noreferrer">
-      <img class="logo" src="../../assets/platon_logo_black.png">
-    </a>
+    <platon-logo></platon-logo>
   </div>
 
   <div class="top-info">
     <div class="center">
-      <span class="center participants">
+      <span class="participants">
         <mat-icon>people</mat-icon> 47
       </span>
       <div class="spacer"></div>
-      <span class="seconds"> {{ currentSeconds }} </span>
-      <span class="time"> {{ currentTime }} </span>
-
-      <button class="exit" mat-icon-button color="warn" (click)="openDialog()">
-        <mat-icon>power_settings_new</mat-icon>
-      </button>
+      <current-time></current-time>
+      <exit-button></exit-button>
     </div>
   </div>
 

@@ -1,8 +1,6 @@
-import { ExitDialogComponent } from '../interface/exit-dialog/exit-dialog.component';
 import { Component, OnInit } from '@angular/core';
-import { ExerciceService } from '../exercice.service';
-import { MatDialog } from '@angular/material/dialog';
-import { Exercice } from '../models/exercices';
+import { ExerciceService } from '../../exercice.service';
+import { Exercice } from '../../models/exercices';
 import { interval } from 'rxjs';
 
 @Component({
@@ -25,18 +23,10 @@ export class InterfaceProfComponent implements OnInit {
     () => { this.currentSeconds = new Date().toLocaleTimeString().split(":").pop(); }
   );
 
-  constructor(public dialog: MatDialog) {
+  constructor() {
   }
 
   ngOnInit(): void {
-  }
-
-  openDialog(): void {
-    this.dialog.open(ExitDialogComponent, { width: '350px' });
-  }
-
-  onKeypressEvent(event: any){
-    console.log(event.target.value);
   }
 
   toggleControlPanel() {

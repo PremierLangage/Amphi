@@ -1,12 +1,4 @@
-@import "../interface/interface.component";
-
-.dark-bg {
-  background-color: rgba(15, 15, 15, .3);
-}
-
-.slide img {
-  @extend .line;
-}
+@import "../interface.component";
 
 $slide-width: 700px;
 $slide-height: 400px;
@@ -31,20 +23,6 @@ $slide-height: 400px;
   grid-area: top-bar;
   padding: 2.5%;
   min-height: calc($platon-logo-size + 2.5%);
-
-  .logo-box {
-    @extend .center;
-    width: $platon-logo-size;
-    height: $platon-logo-size;
-    padding: 5px;
-    background-color: white;
-    border-radius: 5px;
-    margin-bottom: 10px;
-
-    .logo {
-      height: 100%;
-    }
-  }
 }
 
 .top-info {
@@ -54,35 +32,15 @@ $slide-height: 400px;
   padding: 10px;
 
   div {
-    @extend .center;
-    font-size: 20pt;
-
     .participants {
+      @extend .center;
       font-size: 14pt;
       color: $primary-color;
-    }
-
-    .time {
-      @extend %sans;
-    }
-
-    .seconds {
-      color: rgba($color: $fake-white, $alpha: .4);
     }
 
     mat-icon,
     span {
       margin: 0 5px;
-    }
-
-    .exit {
-      margin-left: 10px;
-      background-color: white;
-      transform: scale(.8);
-
-      &:hover {
-        transform: scale(.95);
-      }
     }
   }
 }

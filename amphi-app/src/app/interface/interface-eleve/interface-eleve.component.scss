@@ -1,0 +1,30 @@
+@import "../interface.component";
+
+.grid-container {
+  height: 100%;
+  display: grid;
+  overflow: hidden;
+  grid-template-columns: 1fr;
+  grid-template-rows: .1fr 2.4fr .5fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "top-bar"
+    "current"
+    "amphi-title";
+}
+
+.top-bar {
+  @extend .flex;
+  grid-area: top-bar;
+  padding: 2.5%;
+  min-height: calc($platon-logo-size + 2.5%);
+}
+
+.current-slide-container {
+  @extend .center;
+  grid-area: current;
+}
+
+.amphi-title {
+  grid-area: amphi-title;
+}

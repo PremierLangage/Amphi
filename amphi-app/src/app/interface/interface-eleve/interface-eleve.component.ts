@@ -6,10 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./interface-eleve.component.scss']
 })
 export class InterfaceEleveComponent implements OnInit {
-
   constructor() { }
 
   ngOnInit(): void {
   }
-
 }
