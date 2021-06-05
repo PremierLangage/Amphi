@@ -8,13 +8,18 @@ $slide-height: 400px;
   display: grid;
   overflow: hidden;
   grid-template-columns: 1.3fr 375px;
-  grid-template-rows: .1fr 1.8fr 2.2fr .9fr;
+  grid-template-rows: .1fr 1.8fr 2.6fr .5fr;
   gap: 0px 0px;
   grid-template-areas:
     "top-bar top-info"
     "current next-slide"
     "current control-panel"
     "amphi-title control-panel";
+}
+
+.side-panel {
+  @extend .dark-bg;
+  z-index: 2;
 }
 
 
@@ -27,7 +32,7 @@ $slide-height: 400px;
 
 .top-info {
   @extend %bolder,
-  .dark-bg;
+  .side-panel;
   grid-area: top-info;
   padding: 10px;
 
@@ -74,44 +79,17 @@ $slide-height: 400px;
 
 
 
-.current-slide-container {
-  @extend .flex;
-  grid-area: current;
-  padding: 0 2.5%;
+.current-slide-container .container {
+  max-width: $slide-width;
 
-  .container {
-    @extend .vertical-center;
-    height: 100%;
-    max-width: $slide-width;
-
-    .navigation-bar {
-      @extend .center;
-      $nav-height: 50px;
-      $button-size: $nav-height * 4 / 5;
-
-      height: $nav-height;
-      margin: 10px 0;
-      padding: ($nav-height - $button-size) / 2 0;
-      border-radius: $nav-height / 2;
-      background-color: rgba($color: $fake-white, $alpha: .1);
-
-      button {
-        margin: 0 7.5px;
-        height: $button-size;
-        width: $button-size;
-        box-shadow: none;
-
-        mat-icon {
-          @extend .white;
-        }
-      }
-    }
+  button {
+    z-index: 2;
   }
 }
 
 .next-slide-container {
   @extend .vertical-center,
-  .dark-bg;
+  .side-panel;
   grid-area: next-slide;
   padding: 0 15px;
 
@@ -129,7 +107,7 @@ $slide-height: 400px;
 }
 
 .control-panel-container {
-  @extend .dark-bg;
+  @extend .side-panel;
   grid-area: control-panel;
   padding: 15px 15px 0 15px;
 

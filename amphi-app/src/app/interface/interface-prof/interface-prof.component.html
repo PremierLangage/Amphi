@@ -1,3 +1,5 @@
+<div class="dark-mask" [ngClass]="{'invisible': !forceFocusMode}"> </div>
+
 <div class="grid-container">
   <div class="top-bar">
     <platon-logo></platon-logo>
@@ -15,31 +17,35 @@
   </div>
 
   <div class="amphi-title">
-    <div class="spacer"></div>
-    <h2>AMPHI <sup class="copyright">©</sup> <span class="version"> v1.0</span> </h2>
-    <h1>TITRE DU COURS</h1>
+    <amphi-title></amphi-title>
   </div>
 
   <div class="current-slide-container">
     <div class="spacer"></div>
     <div class="container">
-    <div class="spacer"></div>
-    <div class="slide">
-      <cours-slide></cours-slide>
+      <div class="spacer"></div>
+      <div class="slide">
+        <cours-slide></cours-slide>
       </div>
       <div class="navigation-bar">
         <button mat-fab color="primary">
           <mat-icon>arrow_back</mat-icon>
         </button>
-        <button mat-fab color="primary">
-          <mat-icon>arrow_forward</mat-icon>
-        </button>
+
         <div class="spacer"></div>
-        <button mat-fab color="primary">
+
+        <button mat-fab color="primary" class="inverted">
           <mat-icon>mic</mat-icon>
         </button>
+
+        <button mat-fab color="primary" class="inverted" [ngClass]="{'warn': forceFocusMode}" (click)="toggleFocusMode(); showFocusModeSnackBar()">
+          <mat-icon>{{ forceFocusMode ? 'visibility_off' : 'visibility' }}</mat-icon>
+        </button>
+
+        <div class="spacer"></div>
+
         <button mat-fab color="primary">
-          <mat-icon>remove_red_eye</mat-icon>
+          <mat-icon>arrow_forward</mat-icon>
         </button>
       </div>
       <div class="spacer"></div>
@@ -56,10 +62,10 @@
   </div>
 
   <div class="control-panel-container">
-    <div id="control-panel" [ngClass]="controlPanelHidden ? 'hide-panel' : ''">
+    <div id="control-panel" [ngClass]="{'hide-panel': controlPanelHidden}">
       <div class="title-bar" (click)="toggleControlPanel()">
         <div class="spacer"></div>
-        <mat-icon class="hide-arrow" [ngClass]="controlPanelHidden ? 'flip-arrow' : ''">
+        <mat-icon class="hide-arrow" [ngClass]="{'flip-arrow': controlPanelHidden}">
           keyboard_arrow_down
         </mat-icon>
       </div>
