@@ -1,0 +1,15 @@
+@import "../interface.component";
+
+.logo-box {
+  @extend .center;
+  width: $platon-logo-size;
+  height: $platon-logo-size;
+  padding: 5px;
+  background-color: white;
+  border-radius: 5px;
+  margin-bottom: 10px;
+
+  .logo {
+    height: 100%;
+  }
+}
