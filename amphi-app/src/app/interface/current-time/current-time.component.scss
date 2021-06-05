@@ -1,0 +1,19 @@
+@import "../interface.component";
+
+div {
+  @extend .center;
+  font-size: 20pt;
+
+  span {
+    margin: 0 5px;
+  }
+
+  .time {
+    @extend %sans;
+  }
+
+  .seconds {
+    @extend %bolder;
+    color: rgba($color: $fake-white, $alpha: .4);
+  }
+}
