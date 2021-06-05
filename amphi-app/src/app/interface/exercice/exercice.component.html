@@ -1,6 +1,6 @@
 <div class="exercice-line">
   <mat-icon class="exo-type"> {{ exerciceIcon() }} </mat-icon>
-  <span class="dot" [ngClass]="exericeIsNone() ? 'invisible' : ''"> • </span>
+  <span class="dot" [ngClass]="{'invisible': exericeIsNone()}"> • </span>
   <div class="exercice-title"> {{ exercice.title }} </div>
   <div class="spacer"></div>
   <mat-icon class="play-button">play_circle</mat-icon>

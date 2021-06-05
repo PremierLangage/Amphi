@@ -13,7 +13,7 @@
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
 $amphi-app-primary: mat-palette($mat-deep-purple, A100);
-$amphi-app-accent: mat-palette($mat-lime, A200, A100, A400);
+$amphi-app-accent: mat-palette($mat-lime, A400, A200,  A700,);
 
 // The warn palette is optional (defaults to red).
 $amphi-app-warn: mat-palette($mat-pink, A400);
@@ -58,7 +58,8 @@ $amphi-app-theme: mat-light-theme((
 }
 
 $primary-color: #b388ff;
-$accent-color: #c6ff00;
+$accent-color: #beee33;
+$warn-color: #f50057;
 $fake-white: rgb(225, 225, 250);
 
 // GLOBAL RULES
@@ -124,7 +125,8 @@ button {
 }
 
 .invisible {
-  opacity: 0;
+  pointer-events: none;
+  opacity: 0 !important;
 }
 
 .hidden {

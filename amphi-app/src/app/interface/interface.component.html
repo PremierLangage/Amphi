@@ -1,7 +1,7 @@
 <div class="toggle-view">
   <mat-icon>airline_seat_recline_normal</mat-icon>
-  <mat-slide-toggle [(ngModel)]="prof_view" ></mat-slide-toggle>
-  <span>👨‍‍🏫</span>
+  <mat-slide-toggle [(ngModel)]="prof_view" (click)="showViewSnackBar()"></mat-slide-toggle>
+  <img src="https://lh3.googleusercontent.com/proxy/5JgCjkpf5EFEYs1tLXz-uXerfK7tV_XnLVq7eDW2I6Y1lgpf1dXrg3i4gXPYtG1ec3sb3NaW8sJMvJECkpw5XYwAr_NEjhaej_N2l-_g3eCAKq5JzKHxtHBFGNPBHhXgSKv4a6fLrMeVWBd_Nm78Lbrsk1R0kGd2iA">
 </div>
 
 <ng-container *ngIf="prof_view; then profView else eleveView"></ng-container>
