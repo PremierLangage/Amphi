@@ -1,3 +1,5 @@
+<div class="dark-mask" [ngClass]="{'invisible': !focusMode}"> </div>
+
 <div class="grid-container">
   <div class="top-bar">
     <platon-logo></platon-logo>
@@ -17,16 +19,27 @@
       <div class="slide">
         <cours-slide></cours-slide>
       </div>
-      <div class="spacer"></div>
-      <div class="spacer"></div>
+      <div class="navigation-bar">
+        <button mat-fab color="primary" [disabled]="focusMode">
+          <mat-icon>arrow_back</mat-icon>
+        </button>
+
+        <div class="spacer"></div>
+
+        <button mat-fab class="toggle-focus inverted" [ngClass]="{'warn': focusMode}" (click)="toggleFocusMode(); showFocusModeSnackBar()">
+          <mat-icon>{{ focusMode ? 'visibility_off' : 'visibility' }}</mat-icon>
+        </button>
+
+        <div class="spacer"></div>
+
+        <button mat-fab color="primary" [disabled]="focusMode">
+          <mat-icon>arrow_forward</mat-icon>
+        </button>
+      </div>
     </div>
     <div class="spacer"></div>
   </div>
 
   <div class="amphi-title">
-    <div class="spacer"></div>
-    <h2>AMPHI <sup class="copyright">©</sup> <span class="version"> v1.0</span> </h2>
-    <h3>M. Zipstein</h3>
-    <h1>TITRE DU COURS</h1>
+    <amphi-title></amphi-title>
   </div>
-</div>

@@ -16,13 +16,8 @@
 .top-bar {
   @extend .flex;
   grid-area: top-bar;
-  padding: 2.5%;
-  min-height: calc($platon-logo-size + 2.5%);
-}
-
-.current-slide-container {
-  @extend .center;
-  grid-area: current;
+  padding: 1.5%;
+  min-height: calc($platon-logo-size + 1.5%);
 }
 
 .amphi-title {
