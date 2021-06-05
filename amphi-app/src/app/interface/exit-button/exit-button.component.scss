@@ -1,0 +1,9 @@
+.exit {
+  margin-left: 10px;
+  background-color: white;
+  transform: scale(.8);
+
+  &:hover {
+    transform: scale(.95);
+  }
+}
