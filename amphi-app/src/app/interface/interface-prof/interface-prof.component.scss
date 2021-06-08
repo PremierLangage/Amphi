@@ -79,7 +79,7 @@ $slide-height: 400px;
 
 
 
-.current-slide-container .container {
+.current-slide-container {
   max-width: $slide-width;
 
   button {
@@ -93,16 +93,30 @@ $slide-height: 400px;
   grid-area: next-slide;
   padding: 0 15px;
 
-  .slide {
+  .slide-wrapper {
     opacity: 40%;
+    border: solid rgba($color: $fake-white, $alpha: 0) 1px;
+    transition: .25s;
+  }
 
-    img {
-      max-width: 300px;
+  .empty-slide {
+    border: solid $fake-white 1px;
+    transition: .25s;
+
+    course-slide {
+      opacity: 0%;
     }
   }
 
   h2 {
     margin-top: 0;
+    transition: .5s;
+  }
+
+  .empty-next {
+    opacity: 40%;
+    color: $fake-white;
+    transition: .5s;
   }
 }
 

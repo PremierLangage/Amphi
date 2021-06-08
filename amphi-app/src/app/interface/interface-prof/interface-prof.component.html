@@ -22,43 +22,46 @@
 
   <div class="current-slide-container">
     <div class="spacer"></div>
-    <div class="container">
-      <div class="spacer"></div>
-      <div class="slide">
-        <cours-slide></cours-slide>
-      </div>
-      <div class="navigation-bar">
-        <button mat-fab color="primary">
-          <mat-icon>arrow_back</mat-icon>
-        </button>
 
-        <div class="spacer"></div>
-
-        <button mat-fab color="primary" class="inverted">
-          <mat-icon>mic</mat-icon>
-        </button>
-
-        <button mat-fab color="primary" class="inverted" [ngClass]="{'warn': forceFocusMode}" (click)="toggleFocusMode(); showFocusModeSnackBar()">
-          <mat-icon>{{ forceFocusMode ? 'visibility_off' : 'visibility' }}</mat-icon>
-        </button>
-
-        <div class="spacer"></div>
-
-        <button mat-fab color="primary">
-          <mat-icon>arrow_forward</mat-icon>
-        </button>
-      </div>
-      <div class="spacer"></div>
-      <div class="spacer"></div>
+    <div class="slide-wrapper">
+      <course-slide [slideContent]="presentation.currentSlideContent()"></course-slide>
     </div>
+
+    <div class="navigation-bar">
+      <button mat-fab color="primary" [disabled]="presentation.isOnFirstSlide()" (click)="navigateBackwards()">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+
+      <div class="spacer"></div>
+
+      <button mat-fab color="primary" class="inverted">
+        <mat-icon>mic</mat-icon>
+      </button>
+
+      <button mat-fab color="primary"
+        class="inverted"
+        [ngClass]="{'warn': forceFocusMode}"
+        (click)="toggleFocusMode(); showFocusModeSnackBar()">
+        <mat-icon>{{ forceFocusMode ? 'visibility_off' : 'visibility' }}</mat-icon>
+      </button>
+
+      <div class="spacer"></div>
+
+      <button mat-fab color="primary" [disabled]="presentation.isOnLastSlide()" (click)="navigateForward()">
+        <mat-icon>arrow_forward</mat-icon>
+      </button>
+    </div>
+
+    <div class="spacer"></div>
     <div class="spacer"></div>
   </div>
 
   <div class="next-slide-container">
-    <div class="slide">
-      <cours-slide></cours-slide>
+    <div class="slide-wrapper" [ngClass]="{'empty-slide': presentation.isOnLastSlide()}">
+      <course-slide [slideContent]="presentation.nextSlideContent()"></course-slide>
     </div>
-    <h2>NEXT</h2>
+
+    <h2 [ngClass]="{'empty-next': presentation.isOnLastSlide()}">NEXT</h2>
   </div>
 
   <div class="control-panel-container">

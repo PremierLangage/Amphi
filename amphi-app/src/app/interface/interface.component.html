@@ -1,15 +1,15 @@
 <div class="toggle-view">
   <mat-icon>airline_seat_recline_normal</mat-icon>
   <mat-slide-toggle [(ngModel)]="prof_view" (click)="showViewSnackBar()"></mat-slide-toggle>
-  <img src="https://lh3.googleusercontent.com/proxy/5JgCjkpf5EFEYs1tLXz-uXerfK7tV_XnLVq7eDW2I6Y1lgpf1dXrg3i4gXPYtG1ec3sb3NaW8sJMvJECkpw5XYwAr_NEjhaej_N2l-_g3eCAKq5JzKHxtHBFGNPBHhXgSKv4a6fLrMeVWBd_Nm78Lbrsk1R0kGd2iA">
+  <img src="https://img.pngio.com/certification-ospi-teacher-black-and-white-png-200_200.png">
 </div>
 
 <ng-container *ngIf="prof_view; then profView else eleveView"></ng-container>
 
 <ng-template #profView>
-  <app-interface-prof></app-interface-prof>
+  <app-interface-prof [presentation]="presentation"></app-interface-prof>
 </ng-template>
 
 <ng-template #eleveView>
-  <app-interface-eleve></app-interface-eleve>
+  <app-interface-eleve [presentation]="presentation"></app-interface-eleve>
 </ng-template>

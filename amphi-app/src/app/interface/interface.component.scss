@@ -46,55 +46,46 @@ platon-logo {
   z-index: 2;
 }
 
-.slide img {
-  @extend .line;
-}
-
-
 
 .current-slide-container {
-  @extend .flex;
+  @extend .vertical-center;
   grid-area: current;
   padding: 0 2.5%;
+  height: 100%;
 
-  .container {
-    @extend .vertical-center;
-    height: 100%;
+  .navigation-bar {
+    @extend .center,
+    .dark-bg;
+    $nav-height: 50px;
+    $button-size: $nav-height * 4 / 5;
 
-    .navigation-bar {
-      @extend .center,
-      .dark-bg;
-      $nav-height: 50px;
-      $button-size: $nav-height * 4 / 5;
+    height: $nav-height;
+    margin: 10px 0;
+    padding: ($nav-height - $button-size) / 2 0;
+    border-radius: $nav-height / 2;
+    // background-color: rgba($color: $fake-white, $alpha: .1);
 
-      height: $nav-height;
-      margin: 10px 0;
-      padding: ($nav-height - $button-size) / 2 0;
-      border-radius: $nav-height / 2;
-      // background-color: rgba($color: $fake-white, $alpha: .1);
+    button {
+      margin: 0 7.5px;
+      height: $button-size;
+      width: $button-size;
+      box-shadow: none;
 
-      button {
-        margin: 0 7.5px;
-        height: $button-size;
-        width: $button-size;
-        box-shadow: none;
-
-        mat-icon {
-          color: white;
-        }
+      mat-icon {
+        color: white;
       }
+    }
 
-      .inverted {
-        background-color: white;
+    .inverted {
+      background-color: white;
 
-        mat-icon {
-          color: $primary-color;
-        }
+      mat-icon {
+        color: $primary-color;
       }
+    }
 
-      .warn mat-icon {
-        color: $warn-color;
-      }
+    .warn mat-icon {
+      color: $warn-color;
     }
   }
 }
