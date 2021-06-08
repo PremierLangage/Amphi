@@ -1,14 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ExerciceService } from '../../exercice.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Exercice } from '../../models/exercices';
+import { Presentation } from 'src/app/models/presentation';
 
 @Component({
   selector: 'app-interface-prof',
   templateUrl: './interface-prof.component.html',
   styleUrls: ['./interface-prof.component.scss']
 })
-export class InterfaceProfComponent implements OnInit {
+export class InterfaceProfComponent {
+  @Input() presentation !: Presentation;
+
   controlPanelHidden : boolean = false;
   forceFocusMode : boolean = false;
   exercices : Exercice[] = new ExerciceService().getExercices();
@@ -17,7 +20,12 @@ export class InterfaceProfComponent implements OnInit {
   constructor(private _snackBar: MatSnackBar) {
   }
 
-  ngOnInit(): void {
+  navigateBackwards() {
+    this.presentation.setToPreviousSlide();
+  }
+
+  navigateForward() {
+    this.presentation.setToNextSlide();
   }
 
   toggleFocusMode() {
