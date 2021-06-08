@@ -1,18 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { slides } from '../../pl-assets/processed.json';
+import { Presentation } from '../models/presentation';
 
 @Component({
   selector: 'app-interface',
   templateUrl: './interface.component.html',
   styleUrls: ['./interface.component.scss']
 })
-export class InterfaceComponent implements OnInit {
+export class InterfaceComponent {
   prof_view : boolean = true;
+  current_page : number = 0;
+  presentation !: Presentation;
 
   constructor(private _snackBar: MatSnackBar) {
-  }
-
-  ngOnInit(): void {
+    this.presentation = new Presentation(
+      "Titre du cours", slides
+    );
   }
 
   showViewSnackBar() {
