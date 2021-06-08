@@ -1,0 +1,161 @@
+{
+  "AutomatonDrawer": {
+    "py/type": "components.AutomatonDrawer"
+  },
+  "AutomatonEditor": {
+    "py/type": "components.AutomatonEditor"
+  },
+  "CheckboxGroup": {
+    "py/type": "components.CheckboxGroup"
+  },
+  "CodeEditor": {
+    "py/type": "components.CodeEditor"
+  },
+  "Component": {
+    "py/type": "components.Component"
+  },
+  "DragDrop": {
+    "py/type": "components.DragDrop"
+  },
+  "GraphDrawer": {
+    "py/type": "components.GraphDrawer"
+  },
+  "Input": {
+    "py/type": "components.Input"
+  },
+  "MatchList": {
+    "py/type": "components.MatchList"
+  },
+  "MathDrawer": {
+    "py/type": "components.MathDrawer"
+  },
+  "MathInput": {
+    "py/type": "components.MathInput"
+  },
+  "MathMatrix": {
+    "py/type": "components.MathMatrix"
+  },
+  "RadioGroup": {
+    "py/type": "components.RadioGroup"
+  },
+  "SortList": {
+    "py/type": "components.SortList"
+  },
+  "Text": {
+    "py/type": "components.Text"
+  },
+  "TransfertList": {
+    "py/type": "components.TransfertList"
+  },
+  "__comment": "",
+  "__dependencies": [
+    "/srv/local/pl/premierlangage/home/Yggdrasil/AAAA/Adam/cours-template.pl",
+    "utils/sandboxio.py",
+    "builder/before.py",
+    "grader/evaluator.py",
+    "AAAA/Adam/cours-contenu.md"
+  ],
+  "__extends": [],
+  "__format": ".pl",
+  "__rel_path": "/srv/local/pl/premierlangage/home/Yggdrasil/AAAA/Adam/cours-template.pl",
+  "before": "with open (\"cours.md\" , \"r\") as f:\n    txt = f.readlines()\n\nslides = (\"\\n\".join(txt)).split(\"***\\n\")\npage = 0",
+  "dummy": {
+    "extracss": "<style>\n.exercise__header {\n  background: center no-repeat url(\"https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/PanoMontBlancHDR_edit_1.jpg/800px-PanoMontBlancHDR_edit_1.jpg\");\n  background-size: contain;\n}\n</style>"
+  },
+  "evaluator": "page += 1\n\nif page < len(slides):\n    text = slides[page]\n    title = f\"SLIDE {page}/{len(slides)-1}\"\n    grade = (0, \"Suivant\")\nelse:\n    grade = (100,\"Fin de la présentation\")",
+  "f": null,
+  "form": "\n",
+  "page": 0,
+  "seed": 76,
+  "slides": [
+    "title: Cours template\n\nauthor: aadedjou\n\n---\n\n\n\n",
+    "\n\n\n# Titre de la présentation\n\n\n\ntexte simple  \n\n*texte en italique*  \n\n**texte en gras**  \n\n***texte en gras-italique***  \n\n`texte monospace`  \n\n```txt  \n\nbout de code  \n\n```  \n\n  \n\n",
+    "\n  \n\n# Slide 1  \n\n## sous-titre 1  \n\nContenu de la slide 1  \n\nContenu de la slide 1  \n\nContenu de la slide 1  \n\nContenu de la slide 1  \n\nContenu de la slide 1  \n\nContenu de la slide 1  \n\n  \n\n",
+    "\n  \n\n# Slide 2  \n\n## sous-titre 2  \n\nContenu de la slide 2  \n\nContenu de la slide 2  \n\nContenu de la slide 2  \n\nContenu de la slide 2  \n\nContenu de la slide 2  \n\nContenu de la slide 2  \n\n  \n\n",
+    "\n  \n\n# Slide 3  \n\n## sous-titre 3  \n\nContenu de la slide 3  \n\nContenu de la slide 3  \n\nContenu de la slide 3  \n\nContenu de la slide 3  \n\nContenu de la slide 3  \n\nContenu de la slide 3  \n\n  \n\n",
+    "\n  \n\n# Slide 4  \n\n## sous-titre 4  \n\nContenu de la slide 4  \n\nContenu de la slide 4  \n\nContenu de la slide 4  \n\nContenu de la slide 4  \n\nContenu de la slide 4  \n\nContenu de la slide 4  \n\n  \n\n",
+    "\n  \n\n# Slide 5  \n\n## sous-titre 5  \n\nContenu de la slide 5  \n\nContenu de la slide 5  \n\nContenu de la slide 5  \n\nContenu de la slide 5  \n\nContenu de la slide 5  \n\nContenu de la slide 5  \n\n  \n\n",
+    "\n  \n\n# FIN  \n\n**dernier slide**  \n\n\n"
+  ],
+  "text": "\n",
+  "title": "TITRE DE LA PRESENTATION",
+  "txt": [
+    "title: Cours template\n",
+    "author: aadedjou\n",
+    "---\n",
+    "\n",
+    "***\n",
+    "\n",
+    "# Titre de la présentation\n",
+    "\n",
+    "texte simple  \n",
+    "*texte en italique*  \n",
+    "**texte en gras**  \n",
+    "***texte en gras-italique***  \n",
+    "`texte monospace`  \n",
+    "```txt  \n",
+    "bout de code  \n",
+    "```  \n",
+    "  \n",
+    "***\n",
+    "  \n",
+    "# Slide 1  \n",
+    "## sous-titre 1  \n",
+    "Contenu de la slide 1  \n",
+    "Contenu de la slide 1  \n",
+    "Contenu de la slide 1  \n",
+    "Contenu de la slide 1  \n",
+    "Contenu de la slide 1  \n",
+    "Contenu de la slide 1  \n",
+    "  \n",
+    "***\n",
+    "  \n",
+    "# Slide 2  \n",
+    "## sous-titre 2  \n",
+    "Contenu de la slide 2  \n",
+    "Contenu de la slide 2  \n",
+    "Contenu de la slide 2  \n",
+    "Contenu de la slide 2  \n",
+    "Contenu de la slide 2  \n",
+    "Contenu de la slide 2  \n",
+    "  \n",
+    "***\n",
+    "  \n",
+    "# Slide 3  \n",
+    "## sous-titre 3  \n",
+    "Contenu de la slide 3  \n",
+    "Contenu de la slide 3  \n",
+    "Contenu de la slide 3  \n",
+    "Contenu de la slide 3  \n",
+    "Contenu de la slide 3  \n",
+    "Contenu de la slide 3  \n",
+    "  \n",
+    "***\n",
+    "  \n",
+    "# Slide 4  \n",
+    "## sous-titre 4  \n",
+    "Contenu de la slide 4  \n",
+    "Contenu de la slide 4  \n",
+    "Contenu de la slide 4  \n",
+    "Contenu de la slide 4  \n",
+    "Contenu de la slide 4  \n",
+    "Contenu de la slide 4  \n",
+    "  \n",
+    "***\n",
+    "  \n",
+    "# Slide 5  \n",
+    "## sous-titre 5  \n",
+    "Contenu de la slide 5  \n",
+    "Contenu de la slide 5  \n",
+    "Contenu de la slide 5  \n",
+    "Contenu de la slide 5  \n",
+    "Contenu de la slide 5  \n",
+    "Contenu de la slide 5  \n",
+    "  \n",
+    "***\n",
+    "  \n",
+    "# FIN  \n",
+    "**dernier slide**  \n",
+    "\n"
+  ]
+}
