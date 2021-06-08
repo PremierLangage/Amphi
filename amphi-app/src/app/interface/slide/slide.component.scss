@@ -1,8 +1,19 @@
 @import "../interface-prof/interface-prof.component";
 
-img {
+.slide-wrapper {
+  position: relative;
+  width: 100%;
   max-width: $slide-width;
   max-height: $slide-height;
-  width: auto;
-  height: auto;
+  padding-top: 60%;
+
+  color: rgb(50, 50, 50);
+  background-color: white;
+
+  .text-content {
+    position: absolute;
+    top: 0;
+
+    text-align: center;
+  }
 }
