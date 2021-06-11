@@ -93,7 +93,7 @@ button {
 
 // UTILS
 .border {
-  border: solid white 2px;
+  border: dashed white 2px;
 }
 
 .line {
@@ -167,4 +167,12 @@ button {
 
 .mat-tab-body-content {
   height: inherit !important;
+}
+
+.mat-button-disabled {
+  cursor: not-allowed !important;
+}
+
+button mat-icon {
+  transform: translate(0, -1px) !important;
 }

@@ -11,8 +11,9 @@ import { ExitButtonComponent } from './interface/exit-button/exit-button.compone
 import { AmphiTitleComponent } from './interface/amphi-title/amphi-title.component';
 import { ExitDialogComponent } from './interface/exit-button/exit-dialog/exit-dialog.component';
 import { CurrentTimeComponent } from './interface/current-time/current-time.component';
+import { ProgressBarComponent } from './interface/progress-bar/progress-bar.component';
 import { InterfaceProfComponent } from './interface/interface-prof/interface-prof.component';
-import InterfaceEleveComponent from './interface/interface-eleve/interface-eleve.component';
+import { InterfaceEleveComponent } from './interface/interface-eleve/interface-eleve.component';
 
 // MATERIAL
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -34,6 +35,7 @@ import { FormsModule } from '@angular/forms';
     ExitButtonComponent,
     AmphiTitleComponent,
     ExitDialogComponent,
+    ProgressBarComponent,
     CurrentTimeComponent,
     InterfaceProfComponent,
     InterfaceEleveComponent,

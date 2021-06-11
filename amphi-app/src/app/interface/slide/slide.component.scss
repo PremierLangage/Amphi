@@ -11,6 +11,7 @@
   background-color: white;
 
   .text-content {
+    @extend .line;
     position: absolute;
     top: 0;
 

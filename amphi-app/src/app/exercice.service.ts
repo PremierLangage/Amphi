@@ -14,7 +14,7 @@ export class ExerciceService {
 
   constructor() {
     this.exercices.forEach(exo => {
-      exo.title = "Titre de l'activité " + exo.title;
+      exo.title = "Titre de l'exercice " + exo.title;
     });
   }
 
