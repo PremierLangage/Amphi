@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { interval } from 'rxjs';
 
 @Component({
@@ -6,7 +6,7 @@ import { interval } from 'rxjs';
   templateUrl: './current-time.component.html',
   styleUrls: ['./current-time.component.scss']
 })
-export class CurrentTimeComponent implements OnInit {
+export class CurrentTimeComponent {
   currentSeconds = new Date().toLocaleTimeString().split(":").pop();
   currentTime : String = new Date().toLocaleTimeString().slice(0, -3);
 
@@ -18,8 +18,5 @@ export class CurrentTimeComponent implements OnInit {
     () => { this.currentSeconds = new Date().toLocaleTimeString().split(":").pop(); }
   );
 
-  constructor() { }
 
-  ngOnInit(): void {
-  }
 }

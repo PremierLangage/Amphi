@@ -9,5 +9,5 @@ import { Component, Input } from '@angular/core';
 export class SlideComponent {
   @Input() slideContent : string = "";
 
-  constructor() { }
+
 }

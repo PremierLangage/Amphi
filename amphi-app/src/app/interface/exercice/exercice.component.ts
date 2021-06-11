@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Exercice, EndType } from 'src/app/models/exercices';
 
 @Component({
@@ -6,13 +6,10 @@ import { Exercice, EndType } from 'src/app/models/exercices';
   templateUrl: './exercice.component.html',
   styleUrls: ['./exercice.component.scss']
 })
-export class ExerciceComponent implements OnInit {
+export class ExerciceComponent {
   @Input() exercice!: Exercice;
 
-  constructor() {}
 
-  ngOnInit(): void {
-  }
 
   exerciceIcon() : string {
     switch(this.exercice.endType) {
