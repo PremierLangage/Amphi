@@ -17,39 +17,48 @@
   </div>
 
   <div class="amphi-title">
-    <amphi-title></amphi-title>
   </div>
 
   <div class="current-slide-container">
     <div class="spacer"></div>
 
-    <div class="slide-wrapper">
-      <course-slide [slideContent]="presentation.currentSlideContent()"></course-slide>
-    </div>
+    <div class="board-container">
+      <div class="board">
+        <div class="slide-wrapper">
+          <course-slide [slideContent]="presentation.currentSlideContent()"></course-slide>
+        </div>
 
-    <div class="navigation-bar">
-      <button mat-fab color="primary" [disabled]="presentation.isOnFirstSlide()" (click)="navigateBackwards()">
-        <mat-icon>arrow_back</mat-icon>
-      </button>
+        <progress-bar [currentPage]="presentation.currentSlide" [max]="presentation.slides.length-1"
+          [focusMode]="forceFocusMode"></progress-bar>
 
-      <div class="spacer"></div>
+        <div class="navigation-bar">
+          <button mat-fab color="primary" [disabled]="presentation.isOnFirstSlide()" (click)="navigateBackwards()">
+            <mat-icon>arrow_back</mat-icon>
+          </button>
 
-      <button mat-fab color="primary" class="inverted">
-        <mat-icon>mic</mat-icon>
-      </button>
+          <div class="spacer"></div>
 
-      <button mat-fab color="primary"
-        class="inverted"
-        [ngClass]="{'warn': forceFocusMode}"
-        (click)="toggleFocusMode(); showFocusModeSnackBar()">
-        <mat-icon>{{ forceFocusMode ? 'visibility_off' : 'visibility' }}</mat-icon>
-      </button>
+          <button mat-fab color="primary" class="inverted">
+            <mat-icon>mic</mat-icon>
+          </button>
 
-      <div class="spacer"></div>
+          <button mat-fab color="primary" class="inverted" [ngClass]="{'warn': forceFocusMode}"
+            (click)="toggleFocusMode()">
+            <mat-icon>{{ forceFocusMode ? 'visibility_off' : 'visibility' }}</mat-icon>
+          </button>
 
-      <button mat-fab color="primary" [disabled]="presentation.isOnLastSlide()" (click)="navigateForward()">
-        <mat-icon>arrow_forward</mat-icon>
-      </button>
+          <button mat-fab color="primary" class=""
+          (click)="presentation.revertLastRevealedSlide()" [disabled]="presentation.cantRevert()">
+          <mat-icon>assignment_return</mat-icon>
+          </button>
+
+          <div class="spacer"></div>
+
+          <button mat-fab color="primary" [disabled]="presentation.isOnLastSlide()" (click)="navigateForward()">
+            <mat-icon>arrow_forward</mat-icon>
+          </button>
+        </div>
+      </div>
     </div>
 
     <div class="spacer"></div>
@@ -58,8 +67,19 @@
 
   <div class="next-slide-container">
     <div class="slide-wrapper" [ngClass]="{'empty-slide': presentation.isOnLastSlide()}">
-      <course-slide [slideContent]="presentation.nextSlideContent()"></course-slide>
+      <ng-container *ngIf="presentation.isOnLastSlide(); then emptySlide; else nextSlide"></ng-container>
     </div>
+
+    <ng-template #nextSlide>
+      <course-slide [slideContent]="presentation.nextSlideContent()"></course-slide>
+    </ng-template>
+
+    <ng-template #emptySlide>
+      <div class="close-menu">
+        Vous avez atteint la dernière page du cours.
+        <exit-button [withTxt]="true"></exit-button>
+      </div>
+    </ng-template>
 
     <h2 [ngClass]="{'empty-next': presentation.isOnLastSlide()}">NEXT</h2>
   </div>

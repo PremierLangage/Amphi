@@ -1,8 +1,5 @@
 @import "../interface.component";
 
-$slide-width: 700px;
-$slide-height: 400px;
-
 .grid-container {
   height: 100%;
   display: grid;
@@ -79,12 +76,8 @@ $slide-height: 400px;
 
 
 
-.current-slide-container {
-  max-width: $slide-width;
-
-  button {
-    z-index: 2;
-  }
+.current-slide-container .board-container .board button {
+  z-index: 2;
 }
 
 .next-slide-container {
@@ -100,11 +93,19 @@ $slide-height: 400px;
   }
 
   .empty-slide {
+    height: 200px;
     border: solid $fake-white 1px;
+    opacity: 100%;
     transition: .25s;
 
-    course-slide {
-      opacity: 0%;
+    .close-menu {
+      @extend .vertical-center, %bolder;
+      padding: 50px;
+      text-align: center;
+
+      exit-button {
+        margin-top: 20px;
+      }
     }
   }
 
