@@ -1,0 +1,49 @@
+@import "../../../styles";
+
+$flat-size: 5px;
+$basic-size: 10px;
+$extended-size: 25px;
+
+.progress-bar {
+  @extend .line;
+  height: $basic-size;
+  margin-top: -$basic-size;
+  background-color: rgba($color: $primary-color, $alpha: .4);
+  transition: .3s;
+
+  .progress-bar-value {
+    @extend .center,
+    %bolder;
+    padding: 0 10px;
+    height: inherit;
+    font-size: 0;
+    transition: inherit;
+
+    color: rgba($color: $fake-white, $alpha: .8);
+    background-color: $primary-color;
+
+    .current {
+      color: white;
+      padding: 0 5px;
+    }
+  }
+
+  &:hover {
+    height: $extended-size;
+    margin-top: -$extended-size;
+
+    .progress-bar-value {
+      font-size: $extended-size * 3 / 4;
+    }
+  }
+}
+
+.locked {
+  height: $flat-size;
+  margin-top: -$flat-size;
+  background-color: rgba($color: $warn-color, $alpha: .4);
+
+  .progress-bar-value {
+    background-color: $warn-color;
+  }
+}
