@@ -7,36 +7,43 @@
     <div class="spacer"></div>
 
     <div class="center">
-      <current-time></current-time>
+      <current-time [ngClass]="{'invisible': focusMode}"></current-time>
       <exit-button></exit-button>
     </div>
   </div>
 
   <div class="current-slide-container">
     <div class="spacer"></div>
-    <div class="container">
-      <div class="spacer"></div>
-      <div class="slide">
-        <course-slide></course-slide>
-      </div>
-      <div class="navigation-bar">
-        <button mat-fab color="primary" [disabled]="focusMode">
-          <mat-icon>arrow_back</mat-icon>
-        </button>
 
-        <div class="spacer"></div>
+    <div class="board-container">
+      <div class="board">
+        <div class="slide-wrapper">
+          <course-slide [slideContent]="currentSlideContent()"></course-slide>
+        </div>
 
-        <button mat-fab class="toggle-focus inverted" [ngClass]="{'warn': focusMode}" (click)="toggleFocusMode(); showFocusModeSnackBar()">
-          <mat-icon>{{ focusMode ? 'visibility_off' : 'visibility' }}</mat-icon>
-        </button>
+        <progress-bar [currentPage]="currentSlide()" [max]="globalPresentation.lastRevealedSlide" [focusMode]="focusMode"></progress-bar>
 
-        <div class="spacer"></div>
+        <div class="navigation-bar">
+          <button mat-fab color="primary" [disabled]="focusMode || ownPresentation.isOnFirstSlide()" (click)="navigateBackwards()">
+            <mat-icon>arrow_back</mat-icon>
+          </button>
 
-        <button mat-fab color="primary" [disabled]="focusMode">
-          <mat-icon>arrow_forward</mat-icon>
-        </button>
+          <div class="spacer"></div>
+
+          <button mat-fab class="toggle-focus inverted" [ngClass]="{'warn': focusMode}"
+            (click)="toggleFocusMode()">
+            <mat-icon>{{ focusMode ? 'visibility_off' : 'visibility' }}</mat-icon>
+          </button>
+
+          <div class="spacer"></div>
+
+          <button mat-fab color="primary" [disabled]="focusMode || cantGoFurther()" (click)="navigateForward()">
+            <mat-icon>arrow_forward</mat-icon>
+          </button>
+        </div>
       </div>
     </div>
+
     <div class="spacer"></div>
   </div>
 
