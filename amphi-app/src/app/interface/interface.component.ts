@@ -1,7 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
+import { Presentation } from '../models/presentation';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { slides } from '../../pl-assets/processed.json';
-import { Presentation } from '../models/presentation';
+
+export enum KeyCode {
+  LEFT = 37, // LEFT_ARROW
+  RIGHT = 39, // RIGHT_ARROW
+  SWITCH = 9, // TAB
+  FOCUS = 70, // F
+  UNDO = 90,
+}
 
 @Component({
   selector: 'app-interface',
@@ -10,13 +18,25 @@ import { Presentation } from '../models/presentation';
 })
 export class InterfaceComponent {
   prof_view : boolean = true;
-  current_page : number = 0;
   presentation !: Presentation;
 
   constructor(private _snackBar: MatSnackBar) {
     this.presentation = new Presentation(
       "Titre du cours", slides
     );
+    // this.presentation.currentSlide = 8;
+  }
+
+  @HostListener('window:keydown', ['$event'])
+  keyEvent(event: KeyboardEvent) {
+    switch (event.keyCode) {
+      case KeyCode.SWITCH:
+        this.showViewSnackBar();
+        this.prof_view = !this.prof_view;
+        break;
+      default:
+        console.log(event);
+    }
   }
 
   showViewSnackBar() {
