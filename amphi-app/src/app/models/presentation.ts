@@ -9,6 +9,7 @@ export class Presentation {
         this.slides = slides;
     }
 
+    // predicates
     isOnFirstSlide() : boolean {
       return this.currentSlide <= 0;
     }
@@ -17,22 +18,39 @@ export class Presentation {
       return this.currentSlide >= this.slides.length -1;
     }
 
+    cantRevert() : boolean {
+      return this.lastRevealedSlide <= 0;
+    }
+
+    //navigation
     setToPreviousSlide() {
-      if (this.currentSlide <= 0) return;
+      if (this.isOnFirstSlide()) return;
       this.currentSlide--;
     }
 
     setToNextSlide() {
-      if (this.currentSlide >= this.slides.length -1) return;
+      if (this.isOnLastSlide()) return;
       this.currentSlide++;
+      this.updateLastRevealedSlide();
     }
 
+    revertLastRevealedSlide() {
+      if (this.cantRevert()) return;
+      this.lastRevealedSlide--;
+      this.currentSlide = Math.min(this.lastRevealedSlide, this.currentSlide);
+    }
+
+    updateLastRevealedSlide() {
+      this.lastRevealedSlide = Math.max(this.lastRevealedSlide, this.currentSlide);
+    }
+
+    // getters
     currentSlideContent() : string {
       return this.slides[this.currentSlide];
     }
 
     nextSlideContent() : string {
-      if (this.currentSlide + 1 >= this.slides.length) return this.currentSlideContent();
+      if (this.isOnLastSlide()) return this.currentSlideContent();
       return this.slides[this.currentSlide + 1];
     }
 }
