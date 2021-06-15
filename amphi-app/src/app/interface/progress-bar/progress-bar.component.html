@@ -1,8 +1,12 @@
-<div class="progress-bar" [ngClass]="{'locked': focusMode}">
-  <div class="progress-bar-value" [style.width.%]="(currentPage / max)*100">
-    <div class="spacer"></div>
-    <div class="flex">
-      <div class="current">{{ currentPage + 1 }}</div> <div> / {{ max + 1 }}</div>
+<div class="progress-bar" [ngClass]="{'locked': focusMode, 'full-buffer': showFull}">
+  <div class="loaded-bar-value" [style.width.%]="(loadedPages / max)*100">
+    <div class="progress-bar-value" [style.width.%]="(currentPage / loadedPages)*100">
+      <div class="spacer"></div>
+      <div class="flex">
+        <span class="pagination" [ngClass]="{'first-slide': currentPage == 0}">
+          <span class="current-page">{{ currentPage + 1 }}</span> <span> / {{ max + 1 }}</span>
+        </span>
+      </div>
     </div>
   </div>
 </div>
