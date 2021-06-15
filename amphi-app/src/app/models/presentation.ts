@@ -1,56 +1,70 @@
+export class Slide {
+  title: string;
+  content: string;
+
+  constructor(title: string, content: string) {
+    this.title = title;
+    this.content = content;
+  }
+}
+
 export class Presentation {
-    title: string;
-    slides: string[];
-    currentSlide : number = 0;
-    lastRevealedSlide : number = 0;
+  title: string;
+  slides: Slide[];
+  currentSlideNumber: number = 0;
+  lastRevealedSlide: number = 0;
 
-    constructor(title: string, slides: string[]) {
-        this.title = title;
-        this.slides = slides;
-    }
+  constructor(title: string, slides: Slide[]) {
+    this.title = title;
+    this.slides = slides;
+  }
 
-    // predicates
-    isOnFirstSlide() : boolean {
-      return this.currentSlide <= 0;
-    }
+  // predicates
+  isOnFirstSlide(): boolean {
+    return this.currentSlideNumber <= 0;
+  }
 
-    isOnLastSlide() : boolean {
-      return this.currentSlide >= this.slides.length -1;
-    }
+  isOnLastSlide(): boolean {
+    return this.currentSlideNumber >= this.slides.length - 1;
+  }
 
-    cantRevert() : boolean {
-      return this.lastRevealedSlide <= 0;
-    }
+  cantRevert(): boolean {
+    return this.lastRevealedSlide <= 0;
+  }
 
-    //navigation
-    setToPreviousSlide() {
-      if (this.isOnFirstSlide()) return;
-      this.currentSlide--;
-    }
+  //navigation
+  setToPreviousSlide() {
+    if (this.isOnFirstSlide()) return;
+    this.currentSlideNumber--;
+  }
 
-    setToNextSlide() {
-      if (this.isOnLastSlide()) return;
-      this.currentSlide++;
-      this.updateLastRevealedSlide();
-    }
+  setToNextSlide() {
+    if (this.isOnLastSlide()) return;
+    this.currentSlideNumber++;
+    this.updateLastRevealedSlide();
+  }
 
-    revertLastRevealedSlide() {
-      if (this.cantRevert()) return;
-      this.lastRevealedSlide--;
-      this.currentSlide = Math.min(this.lastRevealedSlide, this.currentSlide);
-    }
+  setToNthSlide(n: number) {
+    this.currentSlideNumber = Math.min(Math.max(n, 0), this.slides.length);
+  }
 
-    updateLastRevealedSlide() {
-      this.lastRevealedSlide = Math.max(this.lastRevealedSlide, this.currentSlide);
-    }
+  revertLastRevealedSlide() {
+    if (this.cantRevert()) return;
+    this.lastRevealedSlide--;
+    this.currentSlideNumber = Math.min(this.lastRevealedSlide, this.currentSlideNumber);
+  }
 
-    // getters
-    currentSlideContent() : string {
-      return this.slides[this.currentSlide];
-    }
+  updateLastRevealedSlide() {
+    this.lastRevealedSlide = Math.max(this.lastRevealedSlide, this.currentSlideNumber);
+  }
 
-    nextSlideContent() : string {
-      if (this.isOnLastSlide()) return this.currentSlideContent();
-      return this.slides[this.currentSlide + 1];
-    }
+  // getters
+  currentSlide(): Slide {
+    return this.slides[this.currentSlideNumber];
+  }
+
+  nextSlide(): Slide {
+    if (this.isOnLastSlide()) return this.currentSlide();
+    return this.slides[this.currentSlideNumber + 1];
+  }
 }
