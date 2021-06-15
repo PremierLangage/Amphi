@@ -1,6 +1,6 @@
 import { Component, Input, HostListener } from '@angular/core';
 import { ExerciceService } from '../../exercice.service';
-import { Presentation } from 'src/app/models/presentation';
+import { Presentation, Slide } from 'src/app/models/presentation';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Exercice } from '../../models/exercices';
 import { KeyCode } from '../interface.component';
@@ -13,7 +13,15 @@ import { KeyCode } from '../interface.component';
 export class InterfaceProfComponent {
   @Input() presentation!: Presentation;
 
+  // front
   controlPanelHidden: boolean = false;
+  slideMenuHidden: boolean = true;
+  hoverSlide: boolean = false;
+  hoverMute: boolean = false;
+  hoverCam: boolean = false;
+
+  muted: boolean = false;
+  camOff: boolean = true;
   forceFocusMode: boolean = false;
   exercices: Exercice[] = new ExerciceService().getExercices();
   profName: String = "Zipstein";
@@ -29,6 +37,20 @@ export class InterfaceProfComponent {
       case KeyCode.RIGHT:
         this.navigateForward();
         break;
+      case KeyCode.UP:
+        this.controlPanelHidden = false;
+        break;
+      case KeyCode.DOWN:
+        this.toggleControlPanel();
+        break;
+
+      case KeyCode.MUTE:
+        this.toggleMute();
+        break;
+      case KeyCode.CAM:
+        this.toggleCam();
+        break;
+
       case KeyCode.UNDO:
         this.presentation.revertLastRevealedSlide();
         break;
@@ -36,6 +58,46 @@ export class InterfaceProfComponent {
         this.toggleFocusMode();
         break;
     }
+  }
+
+  hoverOnMute() {
+    this.hoverMute = true;
+  }
+
+  hoverOffMute() {
+    this.hoverMute = false;
+  }
+
+  hoverOnCam() {
+    this.hoverCam = true;
+  }
+
+  hoverOffCam() {
+    this.hoverCam = false;
+  }
+
+  hoverOnSlide() {
+    this.hoverSlide = true;
+  }
+
+  hoverOffSlide() {
+    this.hoverSlide = false;
+  }
+
+  toggleMute() {
+    this.muted = !this.muted;
+  }
+
+  toggleCam() {
+    this.camOff = !this.camOff;
+  }
+
+  currentSlide() : Slide {
+    return this.presentation.currentSlide();
+  }
+
+  nextSlide() : Slide {
+    return this.presentation.nextSlide();
   }
 
   navigateBackwards() {
@@ -46,9 +108,18 @@ export class InterfaceProfComponent {
     this.presentation.setToNextSlide();
   }
 
+  navigateToNthSlide(n: number) {
+    if (n > this.presentation.lastRevealedSlide) return;
+    this.presentation.setToNthSlide(n);
+  }
+
   toggleFocusMode() {
     this.forceFocusMode = !this.forceFocusMode;
     this.showFocusModeSnackBar()
+  }
+
+  toggleSlideMenu() {
+    this.slideMenuHidden = !this.slideMenuHidden;
   }
 
   toggleControlPanel() {
