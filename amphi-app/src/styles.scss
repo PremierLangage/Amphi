@@ -93,7 +93,7 @@ button {
 
 // UTILS
 .border {
-  border: dashed white 2px;
+  border: solid $accent-color 2px;
 }
 
 .line {
@@ -174,5 +174,5 @@ button {
 }
 
 button mat-icon {
-  transform: translate(0, -1px) !important;
+  transform: translateY(-1px) !important;
 }
