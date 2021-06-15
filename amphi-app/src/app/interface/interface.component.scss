@@ -16,8 +16,8 @@ platon-logo {
   border-color: rgba($color: black, $alpha: .5);
   z-index: 3;
 
-  mat-icon,
-  img {
+  img,
+  mat-icon {
     @extend .center;
     margin: 0 10px;
     font-size: 24pt;
@@ -58,7 +58,8 @@ platon-logo {
     margin: 0 auto;
     max-width: $slide-width;
 
-    course-slide, progress-bar {
+    course-slide,
+    progress-bar {
       position: relative;
       z-index: 2;
     }
@@ -82,6 +83,7 @@ platon-logo {
 
         mat-icon {
           color: white;
+          transition: .2s;
         }
       }
 
