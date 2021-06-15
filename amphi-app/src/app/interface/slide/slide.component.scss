@@ -1,11 +1,12 @@
 @import "../interface-prof/interface-prof.component";
 
-.slide-wrapper {
+.slide-box {
   position: relative;
   width: 100%;
   max-width: $slide-width;
   max-height: $slide-height;
   padding-top: 60%;
+  overflow: hidden;
 
   color: rgb(50, 50, 50);
   background-color: white;
@@ -13,8 +14,7 @@
   .text-content {
     @extend .line;
     position: absolute;
-    top: 0;
-
     text-align: center;
+    top: 0;
   }
 }

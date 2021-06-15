@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Slide } from 'src/app/models/presentation';
 
 @Component({
   selector: 'course-slide',
@@ -7,7 +8,5 @@ import { Component, Input } from '@angular/core';
 })
 
 export class SlideComponent {
-  @Input() slideContent : string = "";
-
-
+  @Input() slide !: Slide;
 }
