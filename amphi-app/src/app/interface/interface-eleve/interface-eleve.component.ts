@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, HostListener } from '@angular/core';
-import { Presentation } from 'src/app/models/presentation';
+import { Presentation, Slide } from 'src/app/models/presentation';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { KeyCode } from '../interface.component';
 
@@ -21,7 +21,7 @@ export class InterfaceEleveComponent implements OnInit {
       this.globalPresentation.title,
       this.globalPresentation.slides
     );
-    this.ownPresentation.currentSlide = -1;
+    this.ownPresentation.currentSlideNumber = -1;
   }
 
   @HostListener('window:keydown', ['$event'])
@@ -41,8 +41,8 @@ export class InterfaceEleveComponent implements OnInit {
 
   toggleFocusMode() {
     this.focusMode = !this.focusMode;
-    if (this.ownPresentation.currentSlide == -1)
-      this.ownPresentation.currentSlide = this.globalPresentation.currentSlide;
+    if (this.ownPresentation.currentSlideNumber == -1)
+      this.ownPresentation.currentSlideNumber = this.globalPresentation.currentSlideNumber;
     this.showFocusModeSnackBar();
   }
 
@@ -59,15 +59,15 @@ export class InterfaceEleveComponent implements OnInit {
   cantGoFurther() : boolean {
     // returns true if the presentation is on last slide
     // or if the next slide hasn't been revealed by the teacher yet
-    return this.globalPresentation.lastRevealedSlide <= this.ownPresentation.currentSlide || this.ownPresentation.isOnLastSlide()
+    return this.globalPresentation.lastRevealedSlide <= this.ownPresentation.currentSlideNumber || this.ownPresentation.isOnLastSlide()
   }
 
-  currentSlide() : number {
-    return (this.focusMode ? this.globalPresentation : this.ownPresentation).currentSlide;
+  currentSlideNumber() : number {
+    return (this.focusMode ? this.globalPresentation : this.ownPresentation).currentSlideNumber;
   }
 
-  currentSlideContent() : string {
-    return (this.focusMode ? this.globalPresentation : this.ownPresentation).currentSlideContent();
+  currentSlide() : Slide {
+    return (this.focusMode ? this.globalPresentation : this.ownPresentation).currentSlide();
   }
 
   showFocusModeSnackBar() {
