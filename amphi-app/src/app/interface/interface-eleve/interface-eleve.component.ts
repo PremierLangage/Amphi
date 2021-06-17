@@ -62,12 +62,16 @@ export class InterfaceEleveComponent implements OnInit {
     return this.globalPresentation.lastRevealedSlide <= this.ownPresentation.currentSlideNumber || this.ownPresentation.isOnLastSlide()
   }
 
+  livePresentation() : Presentation {
+    return this.focusMode ? this.globalPresentation : this.ownPresentation;
+  }
+
   currentSlideNumber() : number {
-    return (this.focusMode ? this.globalPresentation : this.ownPresentation).currentSlideNumber;
+    return this.livePresentation().currentSlideNumber;
   }
 
   currentSlide() : Slide {
-    return (this.focusMode ? this.globalPresentation : this.ownPresentation).currentSlide();
+    return this.livePresentation().currentSlide();
   }
 
   showFocusModeSnackBar() {
