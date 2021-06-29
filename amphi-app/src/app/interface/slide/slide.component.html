@@ -1,5 +1,8 @@
 <div class="slide-box">
-  <div class="text-content">
-    <pl-text [rawText]="slide.content"></pl-text>
+  <div #container class="text-content">
+    <pl-text
+      [style.font-size]="fontSize(container.offsetWidth)"
+      [rawText]="slide.content">
+    </pl-text>
   </div>
 </div>

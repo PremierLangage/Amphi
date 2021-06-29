@@ -9,4 +9,8 @@ import { Slide } from 'src/app/models/presentation';
 
 export class SlideComponent {
   @Input() slide !: Slide;
+
+  fontSize(width: number) {
+    return `calc(0.02 * ${width}px)`;
+  }
 }

@@ -22,6 +22,7 @@ export enum KeyCode {
   styleUrls: ['./interface.component.scss']
 })
 export class InterfaceComponent {
+  prof_view : boolean = false;
   presentation !: Presentation;
   forcedFocusMode : boolean = true;
 

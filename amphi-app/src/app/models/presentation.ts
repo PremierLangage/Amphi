@@ -12,11 +12,13 @@ export class Presentation {
   title: string;
   slides: Slide[];
   currentSlideNumber: number = 0;
-  lastRevealedSlide: number = 0;
+  lastRevealedSlide: number;
 
-  constructor(title: string, slides: Slide[]) {
+  constructor(title: string, slides: Slide[], page ?: number) {
     this.title = title;
     this.slides = slides;
+    this.currentSlideNumber = page || 0;
+    this.lastRevealedSlide = this.currentSlideNumber;
   }
 
   // predicates

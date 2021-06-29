@@ -2,18 +2,15 @@
 
 .slide-box {
   position: relative;
-  max-width: $slide-width;
-  max-height: $slide-height;
   padding-top: 60%;
   overflow: hidden;
 
-  color: rgb(50, 50, 50);
+  color: $fake-black;
   background-color: white;
 
   .text-content {
     @extend .line;
     position: absolute;
-    text-align: center;
     top: 0;
   }
 }

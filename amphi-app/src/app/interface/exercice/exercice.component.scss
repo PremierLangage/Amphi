@@ -19,7 +19,7 @@
 
     cursor: pointer;
     font-size: 12pt;
-    padding: 0 10px;
+    padding: 0 15px;
     border-radius: 20px;
     background-color: rgba($color: $fake-white, $alpha: .2);
     transition: .4s;
@@ -37,7 +37,8 @@
     }
 
     .exercice-title {
-      background-color: rgba($color: $primary-color, $alpha: .6);
+      background-color: rgba($color: $accent-color, $alpha: .6);
+      transform: translateX(5%);
     }
 
     .play-button {
