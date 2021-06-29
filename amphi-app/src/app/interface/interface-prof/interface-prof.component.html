@@ -1,4 +1,4 @@
-<div class="dark-mask" [ngClass]="{'invisible': !forceFocusMode}"> </div>
+<div class="dark-mask" [ngClass]="{'invisible': !forcedFocusMode}"> </div>
 
 <div class="grid-container">
   <div class="top-bar">
@@ -25,11 +25,11 @@
     <div class="board-container">
       <div class="board">
         <div class="slide-wrapper" (mouseenter)="hoverOnSlide()" (mouseleave)="hoverOffSlide()">
-          <course-slide [slide]="currentSlide()"></course-slide>
+          <course-slide [slide]="currentSlide"></course-slide>
         </div>
 
         <progress-bar [currentPage]="presentation.currentSlideNumber" [max]="presentation.slides.length-1"
-          [loadedPages]="presentation.lastRevealedSlide" [focusMode]="forceFocusMode" [showFull]="hoverSlide">
+          [loadedPages]="presentation.lastRevealedSlide" [forcedFocusMode]="forcedFocusMode" [showFull]="hoverSlide">
         </progress-bar>
 
         <div class="navigation-bar">
@@ -54,9 +54,9 @@
 
           <div class="spacer"></div>
 
-          <button mat-fab color="primary" class="inverted" [ngClass]="{'warn': forceFocusMode}"
+          <button mat-fab color="primary" class="inverted" [ngClass]="{'warn': forcedFocusMode}"
             (click)="toggleFocusMode()" matTooltip="Passer en mode 'Focus' pour tous">
-            <mat-icon>{{ forceFocusMode ? 'visibility_off' : 'visibility' }}</mat-icon>
+            <mat-icon>{{ forcedFocusMode ? 'visibility_off' : 'visibility' }}</mat-icon>
           </button>
 
           <div class="spacer"></div>
@@ -109,7 +109,7 @@
     </div>
 
     <ng-template #nextSlideTemp>
-      <course-slide [slide]="nextSlide()"></course-slide>
+      <course-slide [slide]="nextSlide"></course-slide>
     </ng-template>
 
     <ng-template #emptySlide>

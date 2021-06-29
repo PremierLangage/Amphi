@@ -1,4 +1,4 @@
-import { Component, Input, HostListener } from '@angular/core';
+import { Component, Input, Output, HostListener, EventEmitter } from '@angular/core';
 import { ExerciceService } from '../../exercice.service';
 import { Presentation, Slide } from 'src/app/models/presentation';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -11,7 +11,9 @@ import { KeyCode } from '../interface.component';
   styleUrls: ['./interface-prof.component.scss']
 })
 export class InterfaceProfComponent {
-  @Input() presentation!: Presentation;
+  @Input() presentation !: Presentation;
+  @Input() forcedFocusMode !: boolean;
+  @Output() focusModeEvent : EventEmitter<boolean> = new EventEmitter<boolean>();
 
   // front
   controlPanelHidden: boolean = false;
@@ -22,9 +24,16 @@ export class InterfaceProfComponent {
 
   muted: boolean = false;
   camOff: boolean = true;
-  forceFocusMode: boolean = false;
   exercices: Exercice[] = new ExerciceService().getExercices();
   profName: String = "Zipstein";
+
+  get currentSlide() : Slide {
+    return this.presentation.currentSlide();
+  }
+
+  get nextSlide() : Slide {
+    return this.presentation.nextSlide();
+  }
 
   constructor(private _snackBar: MatSnackBar) {}
 
@@ -92,14 +101,6 @@ export class InterfaceProfComponent {
     this.camOff = !this.camOff;
   }
 
-  currentSlide() : Slide {
-    return this.presentation.currentSlide();
-  }
-
-  nextSlide() : Slide {
-    return this.presentation.nextSlide();
-  }
-
   navigateBackwards() {
     this.presentation.setToPreviousSlide();
   }
@@ -114,7 +115,9 @@ export class InterfaceProfComponent {
   }
 
   toggleFocusMode() {
-    this.forceFocusMode = !this.forceFocusMode;
+    this.forcedFocusMode = !this.forcedFocusMode;
+    this.focusModeEvent.emit(this.forcedFocusMode);
+    console.log(this.forcedFocusMode);
     this.showFocusModeSnackBar()
   }
 
@@ -127,7 +130,7 @@ export class InterfaceProfComponent {
   }
 
   showFocusModeSnackBar() {
-    if (!this.forceFocusMode) return;
+    if (!this.forcedFocusMode) return;
 
     let snackBarRef = this._snackBar.open(
       "L'Amphi est en mode 'Focus' pour tous les élèves.",

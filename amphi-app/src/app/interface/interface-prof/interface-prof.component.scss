@@ -24,6 +24,7 @@
 .top-bar {
   grid-area: top-bar;
   padding: 2.5%;
+  min-width: $slide-min-width + 20px;
   min-height: calc($platon-logo-size + 2.5%);
 }
 
@@ -77,7 +78,6 @@
 
 
 .current-slide-container .board-container .board {
-
   .navigation-bar {
     .media-menu {
       @extend .flex;
@@ -94,7 +94,7 @@
   .slide-menu {
     padding: 10px;
     max-height: 125px;
-    max-width: 400px;
+    max-width: $slide-min-width;
 
     overflow-x: scroll;
     overflow-y: hidden;
