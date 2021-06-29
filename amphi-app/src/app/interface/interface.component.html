@@ -7,9 +7,9 @@
 <ng-container *ngIf="prof_view; then profView else eleveView"></ng-container>
 
 <ng-template #profView>
-  <app-interface-prof [presentation]="presentation"></app-interface-prof>
+  <app-interface-prof [presentation]="presentation" [forcedFocusMode]="forcedFocusMode" (focusModeEvent)="forceFocusMode($event)" ></app-interface-prof>
 </ng-template>
 
 <ng-template #eleveView>
-  <app-interface-eleve [globalPresentation]="presentation"></app-interface-eleve>
+  <app-interface-eleve [globalPresentation]="presentation" [forcedFocusMode]="forcedFocusMode"></app-interface-eleve>
 </ng-template>

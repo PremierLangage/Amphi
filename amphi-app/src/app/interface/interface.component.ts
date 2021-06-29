@@ -22,14 +22,13 @@ export enum KeyCode {
   styleUrls: ['./interface.component.scss']
 })
 export class InterfaceComponent {
-  prof_view : boolean = true;
   presentation !: Presentation;
+  forcedFocusMode : boolean = true;
 
   constructor(private _snackBar: MatSnackBar) {
     this.presentation = new Presentation(
       "Titre du cours", this.parsedSlides()
     );
-    // this.presentation.currentSlide = 8;
   }
 
   @HostListener('window:keydown', ['$event'])
@@ -44,6 +43,10 @@ export class InterfaceComponent {
     }
   }
 
+  forceFocusMode(activated : boolean) {
+    this.forcedFocusMode = activated;
+  }
+
   showViewSnackBar() {
     let snackBarRef = this._snackBar.open(
       "Vous êtes passé en vue " + (!this.prof_view ? "prof" : "élève") + ".",
@@ -56,7 +59,7 @@ export class InterfaceComponent {
     });
   }
 
-  parsedSlides() : Slide[] {
+  get parsedSlides() : Slide[] {
     var parsedSlides :  Slide[] = [];
 
     for (let n = 0; n < slides.length; n++) {

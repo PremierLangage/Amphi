@@ -1,17 +1,18 @@
 @import "../../styles";
 
-$slide-width: 700px;
-$slide-height: 400px;
+$slide-max-width: 700px;
+$slide-min-width: 400px;
 $platon-logo-size: 40px;
 
-platon-logo {
-  position: relative;
+.dark-bg {
+  background-color: rgba(15, 15, 15, .3);
 }
 
 .toggle-view {
-  @extend .center;
+  @extend .center, .dark-bg;
   position: absolute;
-  margin: 2.5% 0 0 $platon-logo-size + 50px;
+  margin: 1.5% 0 0 $platon-logo-size + 50px;
+  padding: 10px;
   border-radius: 10px;
   border-color: rgba($color: black, $alpha: .5);
   z-index: 3;
@@ -27,8 +28,8 @@ platon-logo {
 
 
 
-.dark-bg {
-  background-color: rgba(15, 15, 15, .3);
+platon-logo {
+  position: relative;
 }
 
 .dark-mask {
@@ -56,7 +57,7 @@ platon-logo {
 
   .board-container .board {
     margin: 0 auto;
-    max-width: $slide-width;
+    max-width: $slide-max-width;
 
     course-slide,
     progress-bar {
