@@ -5,16 +5,13 @@ $basic-size: 10px;
 $extended-size: 25px;
 
 .progress-bar {
-  @extend .line;
   height: $basic-size;
   margin-top: -$basic-size;
-  background-color: rgba($color: $primary-color, $alpha: .2);
   transition: .3s;
 
   .loaded-bar-value {
     height: inherit;
     transition: inherit;
-    background-color: rgba($color: $primary-color, $alpha: .4);
 
     .progress-bar-value {
       @extend .center,
@@ -24,20 +21,14 @@ $extended-size: 25px;
       font-size: 0;
       transition: inherit;
 
-      color: rgba($color: $fake-white, $alpha: .8);
-      background-color: $primary-color;
-
       .pagination {
+        color: rgba($color: $fake-white, $alpha: .8);
         transition: .2s;
 
         .current-page {
           color: white;
           padding: 0 5px;
         }
-      }
-
-      .first-slide {
-        @extend .invisible;
       }
     }
   }
@@ -48,17 +39,32 @@ $extended-size: 25px;
 }
 
 .full-buffer {
-  height: $extended-size;
-  margin-top: -$extended-size;
+  height: $extended-size !important;
+  margin-top: -$extended-size !important;
 
   .loaded-bar-value .progress-bar-value {
     font-size: $extended-size * 3 / 4;
   }
 }
 
-.locked {
+.shrink {
   height: $flat-size;
   margin-top: -$flat-size;
+}
+
+.progress-bar {
+  background-color: rgba($color: $primary-color, $alpha: .2);
+
+  .loaded-bar-value {
+    background-color: rgba($color: $primary-color, $alpha: .4);
+
+    .progress-bar-value {
+      background-color: $primary-color;
+    }
+  }
+}
+
+.forced-focus {
   background-color: rgba($color: $warn-color, $alpha: .2);
 
   .loaded-bar-value {
@@ -66,7 +72,30 @@ $extended-size: 25px;
 
     .progress-bar-value {
       background-color: $warn-color;
+
+      .pagination {
+        color: rgba($color: white, $alpha: .6);
+      }
     }
   }
 }
 
+.free-nav {
+  background-color: rgba($color: $accent-color, $alpha: .2);
+
+  .loaded-bar-value {
+    background-color: rgba($color: $accent-color, $alpha: .4);
+
+    .progress-bar-value {
+      background-color: $accent-color;
+
+      .pagination {
+        color: rgba($color: $fake-black, $alpha: .4);
+
+        .current-page {
+          color: $fake-black;
+        }
+      }
+    }
+  }
+}
