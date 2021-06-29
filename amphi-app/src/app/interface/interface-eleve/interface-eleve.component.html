@@ -17,12 +17,13 @@
 
     <div class="board-container">
       <div class="board">
-        <div class="slide-wrapper">
-          <course-slide [slide]="currentSlide()"></course-slide>
+        <div class="slide-wrapper" (mouseenter)="hoverOnSlide()" (mouseleave)="hoverOffSlide()">
+          <course-slide [slide]="currentSlide"></course-slide>
         </div>
 
-        <progress-bar [currentPage]="currentSlideNumber()" [loadedPages]="globalPresentation.lastRevealedSlide"
-          [max]="globalPresentation.lastRevealedSlide" [focusMode]="focusMode">
+        <progress-bar [currentPage]="currentSlideNumber" [loadedPages]="globalPresentation.lastRevealedSlide"
+          [max]="globalPresentation.lastRevealedSlide" [focusMode]="focusMode" [forcedFocusMode]="forcedFocusMode"
+          [showFull]="hoverSlide">
         </progress-bar>
 
         <div class="navigation-bar">
@@ -33,13 +34,18 @@
 
           <div class="spacer"></div>
 
-          <button mat-fab class="toggle-focus inverted" [ngClass]="{'warn': focusMode}" (click)="toggleFocusMode()" matTooltip="Mode Focus">
+          <button mat-fab class="toggle-focus inverted" [disabled]="forcedFocusMode"
+            [ngClass]="{'warn': forcedFocusMode}" (click)="toggleFocusMode()" matTooltip="Mode Focus">
             <mat-icon>{{ focusMode ? 'visibility_off' : 'visibility' }}</mat-icon>
+            <ng-container *ngIf="forcedFocusMode">
+              <mat-icon class="locked"> lock </mat-icon>
+            </ng-container>
           </button>
 
           <div class="spacer"></div>
 
-          <button mat-fab color="primary" [disabled]="focusMode || cantGoFurther()" (click)="navigateForward()"  matTooltip="Slide suivante">
+          <button mat-fab color="primary" [disabled]="focusMode || cantGoFurther" (click)="navigateForward()"
+            matTooltip="Slide suivante">
             <mat-icon>arrow_forward</mat-icon>
           </button>
         </div>

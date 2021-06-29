@@ -10,8 +10,10 @@ import { KeyCode } from '../interface.component';
 })
 export class InterfaceEleveComponent implements OnInit {
   @Input() globalPresentation !: Presentation;
+  @Input() forcedFocusMode !: boolean;
   ownPresentation !: Presentation;
 
+  hoverSlide : boolean = false;
   focusMode : boolean = true;
 
   constructor(private _snackBar: MatSnackBar) { }
@@ -39,8 +41,36 @@ export class InterfaceEleveComponent implements OnInit {
     }
   }
 
+  get cantGoFurther() : boolean {
+    // returns true if the presentation is on last slide
+    // or if the next slide hasn't been revealed by the teacher yet
+    return this.globalPresentation.lastRevealedSlide <= this.ownPresentation.currentSlideNumber || this.ownPresentation.isOnLastSlide()
+  }
+
+  get livePresentation() : Presentation {
+    return this.focusMode ? this.globalPresentation : this.ownPresentation;
+  }
+
+  get currentSlideNumber() : number {
+    return this.livePresentation.currentSlideNumber;
+  }
+
+  get currentSlide() : Slide {
+    return this.livePresentation.currentSlide();
+  }
+
+  hoverOnSlide() {
+    this.hoverSlide = true;
+  }
+
+  hoverOffSlide() {
+    this.hoverSlide = false;
+  }
+
   toggleFocusMode() {
+    if (this.forcedFocusMode) return;
     this.focusMode = !this.focusMode;
+
     if (this.ownPresentation.currentSlideNumber == -1)
       this.ownPresentation.currentSlideNumber = this.globalPresentation.currentSlideNumber;
     this.showFocusModeSnackBar();
@@ -52,26 +82,8 @@ export class InterfaceEleveComponent implements OnInit {
   }
 
   navigateForward() {
-    if (this.cantGoFurther()) return;
+    if (this.cantGoFurther) return;
     this.ownPresentation.setToNextSlide();
-  }
-
-  cantGoFurther() : boolean {
-    // returns true if the presentation is on last slide
-    // or if the next slide hasn't been revealed by the teacher yet
-    return this.globalPresentation.lastRevealedSlide <= this.ownPresentation.currentSlideNumber || this.ownPresentation.isOnLastSlide()
-  }
-
-  livePresentation() : Presentation {
-    return this.focusMode ? this.globalPresentation : this.ownPresentation;
-  }
-
-  currentSlideNumber() : number {
-    return this.livePresentation().currentSlideNumber;
-  }
-
-  currentSlide() : Slide {
-    return this.livePresentation().currentSlide();
   }
 
   showFocusModeSnackBar() {

@@ -27,3 +27,8 @@
 .amphi-title {
   grid-area: amphi-title;
 }
+
+.locked {
+  position: absolute;
+  transform: translateY(100%) scale(75%);
+}
