@@ -25,7 +25,7 @@ export class InterfaceProfComponent {
   muted: boolean = false;
   camOff: boolean = true;
   exercices: Exercice[] = new ExerciceService().getExercices();
-  profName: String = "Zipstein";
+  profName: string = "Zipstein";
 
   get currentSlide() : Slide {
     return this.presentation.currentSlide();
@@ -45,12 +45,6 @@ export class InterfaceProfComponent {
         break;
       case KeyCode.RIGHT:
         this.navigateForward();
-        break;
-      case KeyCode.UP:
-        this.controlPanelHidden = false;
-        break;
-      case KeyCode.DOWN:
-        this.toggleControlPanel();
         break;
 
       case KeyCode.MUTE:
@@ -123,10 +117,6 @@ export class InterfaceProfComponent {
 
   toggleSlideMenu() {
     this.slideMenuHidden = !this.slideMenuHidden;
-  }
-
-  toggleControlPanel() {
-    this.controlPanelHidden = !this.controlPanelHidden;
   }
 
   showFocusModeSnackBar() {

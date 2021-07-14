@@ -15,24 +15,21 @@
 }
 
 .side-panel {
-  @extend .dark-bg;
-  z-index: 2;
+  @extend .dark-bg, .in-focus;
 }
 
 
 
 .top-bar {
-  grid-area: top-bar;
-  padding: 2.5%;
   min-width: $slide-min-width + 20px;
-  min-height: calc($platon-logo-size + 2.5%);
 }
 
 .top-info {
   @extend %bolder,
-  .side-panel;
+  .side-panel
+  ;
   grid-area: top-info;
-  padding: 10px;
+  padding: 5%;
 
   div {
     .participants {
@@ -51,7 +48,7 @@
 .amphi-title {
   @extend .vertical-center;
   grid-area: amphi-title;
-  padding: 2.5%;
+  padding: $window-padding;
 
   h2 {
     color: $primary-color;
@@ -87,11 +84,12 @@
     }
 
     button {
-      z-index: 2;
+      @extend .in-focus;
     }
   }
 
   .slide-menu {
+    @extend .in-focus;
     padding: 10px;
     max-height: 125px;
     max-width: $slide-min-width;
@@ -99,6 +97,7 @@
     overflow-x: scroll;
     overflow-y: hidden;
     scrollbar-width: thin;
+    scrollbar-color: $primary-color rgba($color: $primary-color, $alpha: .3);
 
     background-color: rgba(0, 0, 0, .5);
     transition: .3s;
@@ -207,68 +206,4 @@
   @extend .side-panel;
   grid-area: control-panel;
   padding: 15px 15px 0 15px;
-
-  $title-bar-height: 25px;
-
-  #control-panel {
-    @extend .flex-column;
-    height: 100%;
-    transition: .4s;
-
-    .title-bar {
-      @extend .flex;
-      height: $title-bar-height;
-      background-color: $primary-color;
-      border-radius: 15px 15px 0 0;
-
-      .hide-arrow {
-        cursor: pointer;
-        margin: 0 10px;
-        transition: .2s;
-      }
-
-      .flip-arrow {
-        transform: rotate(180deg);
-      }
-    }
-
-    mat-tab-group {
-      @extend .center,
-      .line;
-
-      .mat-tab-label {
-        background-color: rgba($color: $primary-color, $alpha: 1);
-      }
-
-      mat-icon {
-        color: $fake-white;
-
-        &.home {
-          margin: 0 7.5px;
-          transform: scale(1.4);
-        }
-      }
-    }
-
-    .panel {
-      height: inherit;
-      padding: 0 15px;
-      background-color: rgba($color: $primary-color, $alpha: .2);
-      transition: .6s;
-
-      h1 {
-        text-align: center;
-        font-size: 16pt;
-        color: rgba($color: $fake-white, $alpha: .8);
-      }
-
-      &:hover {
-        background-color: rgba($color: $primary-color, $alpha: .25);
-      }
-    }
-  }
-
-  .hide-panel {
-    transform: translateY(100%) translateY(-$title-bar-height);
-  }
 }
