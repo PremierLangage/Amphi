@@ -11,8 +11,8 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$amphi-app-primary: mat-palette($mat-deep-purple, A100);
-$amphi-app-accent: mat-palette($mat-teal, A200, A100, A700, );
+$amphi-app-primary: mat-palette($mat-deep-purple, A100, A200);
+$amphi-app-accent: mat-palette($mat-teal, A200, A100, A700);
 
 // The warn palette is optional (defaults to red).
 $amphi-app-warn: mat-palette($mat-pink, A400);
@@ -20,9 +20,9 @@ $amphi-app-warn: mat-palette($mat-pink, A400);
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
 $amphi-app-theme: mat-light-theme((color: (primary: $amphi-app-primary,
-      accent: $amphi-app-accent,
-      warn: $amphi-app-warn,
-    )));
+  accent: $amphi-app-accent,
+  warn: $amphi-app-warn,
+)));
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
@@ -176,5 +176,10 @@ button {
 
   .mat-tab-body-content {
     height: inherit;
+  }
+
+  .tooltip, .impossible-action, .mat-tooltip {
+    color: red;
+    background-color: rgba($color: white, $alpha: .3);
   }
 }

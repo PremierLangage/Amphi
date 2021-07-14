@@ -17,6 +17,4 @@ export class CurrentTimeComponent {
   updateSeconds = interval(1000).subscribe(
     () => { this.currentSeconds = new Date().toLocaleTimeString().split(":").pop(); }
   );
-
-
 }

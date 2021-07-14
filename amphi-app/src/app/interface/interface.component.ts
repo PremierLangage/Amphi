@@ -22,13 +22,13 @@ export enum KeyCode {
   styleUrls: ['./interface.component.scss']
 })
 export class InterfaceComponent {
-  prof_view : boolean = false;
+  prof_view : boolean = true;
   presentation !: Presentation;
-  forcedFocusMode : boolean = true;
+  forcedFocusMode : boolean = false;
 
   constructor(private _snackBar: MatSnackBar) {
     this.presentation = new Presentation(
-      "Titre du cours", this.parsedSlides()
+      "Titre du cours", this.parsedSlides
     );
   }
 

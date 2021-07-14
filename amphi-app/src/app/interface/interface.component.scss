@@ -1,11 +1,16 @@
 @import "../../styles";
 
-$slide-max-width: 700px;
+$slide-max-width: 60vw;
 $slide-min-width: 400px;
 $platon-logo-size: 40px;
+$window-padding: 1.5%;
 
 .dark-bg {
   background-color: rgba(15, 15, 15, .3);
+}
+
+.in-focus {
+  z-index: 2;
 }
 
 .toggle-view {
@@ -15,7 +20,7 @@ $platon-logo-size: 40px;
   padding: 10px;
   border-radius: 10px;
   border-color: rgba($color: black, $alpha: .5);
-  z-index: 3;
+  z-index: 5;
 
   img,
   mat-icon {
@@ -46,13 +51,19 @@ platon-logo {
 .slide,
 .toggle-focus,
 platon-logo {
-  z-index: 2;
+  @extend .in-focus;
+}
+
+.top-bar {
+  @extend .flex;
+  grid-area: top-bar;
+  padding: $window-padding;
 }
 
 .current-slide-container {
   @extend .vertical-center;
   grid-area: current;
-  padding: 0 2.5%;
+  padding: 0 $window-padding;
   height: 100%;
 
   .board-container .board {
@@ -62,7 +73,7 @@ platon-logo {
     course-slide,
     progress-bar {
       position: relative;
-      z-index: 2;
+      @extend .in-focus;
     }
 
     .navigation-bar {
