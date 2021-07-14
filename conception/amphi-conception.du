@@ -1,0 +1,92 @@
+@startuml
+allow_mixing
+
+skinparam class {
+  backgroundColor #EEFFFF
+  arrowFontColor #666666
+  borderColor #333333
+  arrowColor #333333
+}
+
+skinparam actor {
+  backgroundColor #EEFFFF
+  arrowFontColor #666666
+  borderColor #333333
+  arrowColor #333333
+}
+
+skinparam note {
+  backgroundColor #EEEEFF
+  borderColor #666666
+  fontColor #666666
+}
+
+class Amphi  {
+    + Titre
+    + **Teacher** Maître de conf
+    + ~~**Intervenant[ ]** intervenants~~
+    + **Participant[ ]** autorisés
+    + Horaire début
+    + ~~Horaire fin~~
+
+    + **Cours** cours
+    + ~~**Exercice[ ]** exercices~~
+
+    - ~~password~~
+    - ~~**int** maxParticipants~~
+    - ~~**Participant[ ]** exclus~~
+}
+
+class User { }
+
+actor Teacher #99FFDD
+
+actor Intervenant #99BBFF
+
+actor Participant #DD99FF
+
+class ExoPL {
+    + Titre
+    - URL
+}
+
+class ActivitePLTP {
+    + Titre
+    + ~~**ExoPL[ ]** exercices~~
+    - URL
+}
+
+class Cours extends ActivitePLTP { }
+
+class Exercice extends ExoPL {
+    + **EndType** closer
+}
+
+enum EndType {
+   + //NONE//
+   + //TIME//
+   + //NB_ANSWERS//
+   + //NB_CORRECT_ANS//
+}
+
+note top of EndType : Détermine l'évènement mettant fin à un exercice. \n Quel que soit le type, le Teacher peut mettre manuellement fin à l'exercice.
+
+ExoPL "0, n" -> "1" ActivitePLTP : est utilisé par
+
+Teacher "0, n" -> "1" Amphi  : organise
+Intervenant "0, n" -> "0, n" Amphi  : assiste à
+Participant "0, n" -> "0, n" Amphi : suit
+
+Cours "1" -> "0, n" Amphi : est sujet de
+Exercice "0, n" -> "0, n" Amphi : peut être lancé par
+
+Cours "0, n" -> "1" Teacher : appartient à
+Exercice "0, n" -> "1" Teacher : appartient à
+
+EndType "1" -> "0, n" Exercice : clos
+
+Intervenant ---> User
+Teacher ---> User
+Participant ---> User
+
+@enduml

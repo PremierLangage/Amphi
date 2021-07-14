@@ -1,0 +1,59 @@
+@startuml
+
+skinparam participant {
+  backgroundColor #333344
+  arrowFontColor #666677
+  borderColor #33333300
+  fontColor #FFFFFF
+}
+
+skinparam sequence {
+  lifeLineBorderColor #333344
+  arrowColor #9999AA
+}
+
+
+
+participant Front as front #A377FF
+participant Serveur as server
+database BDD #CCCCDD
+
+== __Création__ de l'Amphi ==
+front -[#A377FF]> server : <font color=#BBDD77>**[REST]**</font> **création** de l'amphi
+server <- BDD : récupère les **activités** PL (cours + exos)
+server -> server : génère l'objet **amphi** //avec tous les param.//
+server -> BDD : enregistre l'objet amphi dans la BDD
+server --> server : génère l'URL <font color=#33AABB>WS</font> de l'activité
+server -> server : <font color=#BBDD77>**[REST]**</font> accessibilité à l'amphi pour le ""prof"" + les ""intervenants""
+server -> front : feedback du <font color=#666677>serveur</font> <font color=#BBDD77>**[REST]**</font>
+
+... ...
+
+== __Lancement__ de l'Amphi ==
+front -[#A377FF]> server : <font color=#33AABB>**[WS]**</font> **lancement** de l'amphi, début du cours
+front --> front : <font color=#33AABB>**[WS]**</font> passage initial en mode ""cours""
+front -> server : <font color=#BBDD77>**[REST]**</font> **chargement** du cours et des exos
+server -> server : accessibilité à l'amphi pour tous les ""participants""
+... ...
+front -[#A377FF]> server :  <font color=#33AABB>**[WS]**</font> changement de **slide**
+server -> front : update les vues ""prof"" + ""participant""
+server <-> front : <font color=#33AABB>**[WS]**</font> connexion en <font color=#33AABB>WS</font>
+
+... ...
+== Lancement d'un __exercice__ ==
+front -[#A377FF]> server : <font color=#33AABB>**[WS]**</font> **lancement** d'un exo'
+front -> server : <font color=#33AABB>**[WS]**</font> passage en mode ""exo""
+front -> server : <font color=#BBDD77>**[REST]**</font> chargement de l'exercice
+server -> server : ...
+front -> server : <font color=#33AABB>**[WS]**</font>[élève] répond à l'exercice
+server --> front : <font color=#33AABB>**[WS]**</font> modifie l'affichage du front
+
+... ...
+
+== __Fermeture__ de l'Amphi ==
+server -> BDD : enregistrement des **logs** liés à l'Amphi
+front --> front : mise à disposition des exos de l'Amphi pour les ""participants""
+front --> front : <font color=#33AABB>**[WS]**</font> passage définitif en mode ""cours""
+front --> front : <font color=#33AABB>**[WS]**</font> passage en mode ""navigation"" pour tous les ""participants""
+
+@enduml

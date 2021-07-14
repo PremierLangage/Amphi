@@ -1,0 +1,16 @@
+@import "../interface-prof/interface-prof.component";
+
+.slide-box {
+  position: relative;
+  padding-top: 60%;
+  overflow: hidden;
+
+  color: $fake-black;
+  background-color: white;
+
+  .text-content {
+    @extend .line;
+    position: absolute;
+    top: 0;
+  }
+}

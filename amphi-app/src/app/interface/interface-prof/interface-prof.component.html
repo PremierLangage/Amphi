@@ -1,0 +1,128 @@
+<div class="dark-mask" [ngClass]="{'invisible': !forcedFocusMode}"> </div>
+
+<div class="grid-container">
+  <div class="top-bar">
+    <platon-logo></platon-logo>
+  </div>
+
+  <div class="top-info">
+    <div class="center">
+      <span class="participants">
+        <mat-icon>people</mat-icon> 47
+      </span>
+      <div class="spacer"></div>
+      <current-time></current-time>
+      <exit-button></exit-button>
+    </div>
+  </div>
+
+  <div class="amphi-title">
+  </div>
+
+  <div class="current-slide-container">
+    <div class="spacer"></div>
+
+    <div class="board-container">
+      <div class="board">
+        <div class="slide-wrapper" (mouseenter)="hoverOnSlide()" (mouseleave)="hoverOffSlide()">
+          <course-slide [slide]="currentSlide"></course-slide>
+        </div>
+
+        <progress-bar [currentPage]="presentation.currentSlideNumber" [max]="presentation.slides.length-1"
+          [loadedPages]="presentation.lastRevealedSlide" [forcedFocusMode]="forcedFocusMode" [showFull]="hoverSlide">
+        </progress-bar>
+
+        <div class="navigation-bar">
+          <button mat-fab color="primary" [disabled]="presentation.isOnFirstSlide()" (click)="navigateBackwards()"
+            matTooltip="Slide précédente">
+            <mat-icon>arrow_back</mat-icon>
+          </button>
+
+          <div class="spacer"></div>
+
+          <div class="media-menu">
+            <button mat-fab color="primary" class="inverted" [ngClass]="{'warn': camOff}" (click)="toggleCam()"
+              [matTooltip]="(camOff ? 'Activer' : 'Désactiver') + ' la caméra'" (mouseenter)="hoverOnCam()" (mouseleave)="hoverOffCam()">
+              <mat-icon>{{ (camOff || hoverCam) ? 'videocam_off' : 'videocam' }}</mat-icon>
+            </button>
+
+            <button mat-fab color="primary" class="inverted" [ngClass]="{'warn': muted}" (click)="toggleMute()"
+              [matTooltip]="(muted ? 'Activer' : 'Désactiver') + ' le micro'" (mouseenter)="hoverOnMute()" (mouseleave)="hoverOffMute()">
+              <mat-icon>{{ (muted || hoverMute) ? 'mic_off' : 'mic' }}</mat-icon>
+            </button>
+          </div>
+
+          <div class="spacer"></div>
+
+          <button mat-fab color="primary" class="inverted" [ngClass]="{'warn': forcedFocusMode}"
+            (click)="toggleFocusMode()" [matTooltip]="(forcedFocusMode ? 'Quitter le' : 'Passer en') + ' mode \'Focus\' pour tous'">
+            <mat-icon>{{ forcedFocusMode ? 'visibility_off' : 'visibility' }}</mat-icon>
+          </button>
+
+          <div class="spacer"></div>
+
+          <button mat-fab color="primary" class="inverted" [ngClass]="{'inverted': !slideMenuHidden}"
+            (click)="toggleSlideMenu()" matTooltip="Selectionner un slide">
+            <mat-icon>burst_mode</mat-icon>
+          </button>
+
+          <button mat-fab color="primary" class="" (click)="presentation.revertLastRevealedSlide()"
+            [disabled]="presentation.cantRevert()" matTooltip="Annuler l'accès à la dernière slide">
+            <mat-icon>replay</mat-icon>
+          </button>
+
+          <div class="spacer"></div>
+
+          <button mat-fab color="primary" [disabled]="presentation.isOnLastSlide()" (click)="navigateForward()"
+            matTooltip="Slide suivante">
+            <mat-icon>arrow_forward</mat-icon>
+          </button>
+        </div>
+
+        <div class="flex">
+          <div class="spacer"></div>
+          <div class="slide-menu" [ngClass]="{'hide-slide-menu': slideMenuHidden}">
+            <div class="carousel">
+              <div class="carousel-item" *ngFor="let slide of presentation.slides; let n = index;"
+                [ngClass]="{'current': slide == presentation.currentSlide(), 'unavailable': n > presentation.lastRevealedSlide}"  (click)="navigateToNthSlide(n)">
+                <div class="slide-wrapper">
+                  <course-slide [slide]="slide"></course-slide>
+                </div>
+                <span class="slide-title">
+                  {{ slide.title }}
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="spacer"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+  </div>
+
+  <div class="next-slide-container">
+    <div class="slide-wrapper" [ngClass]="{'empty-slide': presentation.isOnLastSlide()}">
+      <ng-container *ngIf="presentation.isOnLastSlide(); then emptySlide; else nextSlideTemp"></ng-container>
+    </div>
+
+    <ng-template #nextSlideTemp>
+      <course-slide [slide]="nextSlide"></course-slide>
+    </ng-template>
+
+    <ng-template #emptySlide>
+      <div class="close-menu">
+        Vous avez atteint la dernière page du cours.
+        <exit-button [withTxt]="true"></exit-button>
+      </div>
+    </ng-template>
+
+    <h2 [ngClass]="{'empty-next': presentation.isOnLastSlide()}">NEXT</h2>
+  </div>
+
+  <div class="control-panel-container">
+    <control-panel [hidden]="controlPanelHidden" [name]="profName" [exerciceList]="exercices"></control-panel>
+  </div>
+</div>

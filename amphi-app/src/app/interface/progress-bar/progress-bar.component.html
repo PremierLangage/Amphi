@@ -1,0 +1,12 @@
+<div class="progress-bar" [ngClass]="{'shrink': focusMode || forcedFocusMode, 'full-buffer': showFull, 'free-nav': !focusMode, 'forced-focus': forcedFocusMode}">
+  <div class="loaded-bar-value" [style.width.%]="(loadedPages / max)*100">
+    <div class="progress-bar-value" [style.width.%]="(currentPage / loadedPages)*100">
+      <div class="spacer"></div>
+      <div class="flex">
+        <div class="pagination" [ngClass]="{'invisible': currentPage == 0, 'last-page': currentPage == max}">
+          <span class="current-page">{{ currentPage + 1 }}</span> <span> / {{ max + 1 }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

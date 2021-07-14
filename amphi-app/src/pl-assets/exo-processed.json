@@ -1,0 +1,473 @@
+{
+  "AutomatonDrawer": {
+    "py/type": "components.AutomatonDrawer"
+  },
+  "AutomatonEditor": {
+    "py/type": "components.AutomatonEditor"
+  },
+  "BuilderError": {
+    "py/type": "__main__.BuilderError"
+  },
+  "CheckboxGroup": {
+    "py/type": "components.CheckboxGroup"
+  },
+  "CodeEditor": {
+    "py/type": "components.CodeEditor"
+  },
+  "Component": {
+    "py/type": "components.Component"
+  },
+  "DragDrop": {
+    "py/type": "components.DragDrop"
+  },
+  "GraphDrawer": {
+    "py/type": "components.GraphDrawer"
+  },
+  "Input": {
+    "py/type": "components.Input"
+  },
+  "MatchList": {
+    "py/type": "components.MatchList"
+  },
+  "MathDrawer": {
+    "py/type": "components.MathDrawer"
+  },
+  "MathInput": {
+    "py/type": "components.MathInput"
+  },
+  "MathMatrix": {
+    "py/type": "components.MathMatrix"
+  },
+  "RadioGroup": {
+    "py/type": "components.RadioGroup"
+  },
+  "SortList": {
+    "py/type": "components.SortList"
+  },
+  "Text": {
+    "py/type": "components.Text"
+  },
+  "TransfertList": {
+    "py/type": "components.TransfertList"
+  },
+  "__builtins__": {
+    "ArithmeticError": {
+      "py/type": "builtins.ArithmeticError"
+    },
+    "AssertionError": {
+      "py/type": "builtins.AssertionError"
+    },
+    "AttributeError": {
+      "py/type": "builtins.AttributeError"
+    },
+    "BaseException": {
+      "py/type": "builtins.BaseException"
+    },
+    "BlockingIOError": {
+      "py/type": "builtins.BlockingIOError"
+    },
+    "BrokenPipeError": {
+      "py/type": "builtins.BrokenPipeError"
+    },
+    "BufferError": {
+      "py/type": "builtins.BufferError"
+    },
+    "BytesWarning": {
+      "py/type": "builtins.BytesWarning"
+    },
+    "ChildProcessError": {
+      "py/type": "builtins.ChildProcessError"
+    },
+    "ConnectionAbortedError": {
+      "py/type": "builtins.ConnectionAbortedError"
+    },
+    "ConnectionError": {
+      "py/type": "builtins.ConnectionError"
+    },
+    "ConnectionRefusedError": {
+      "py/type": "builtins.ConnectionRefusedError"
+    },
+    "ConnectionResetError": {
+      "py/type": "builtins.ConnectionResetError"
+    },
+    "DeprecationWarning": {
+      "py/type": "builtins.DeprecationWarning"
+    },
+    "EOFError": {
+      "py/type": "builtins.EOFError"
+    },
+    "Ellipsis": null,
+    "EnvironmentError": {
+      "py/type": "builtins.OSError"
+    },
+    "Exception": {
+      "py/type": "builtins.Exception"
+    },
+    "False": false,
+    "FileExistsError": {
+      "py/type": "builtins.FileExistsError"
+    },
+    "FileNotFoundError": {
+      "py/type": "builtins.FileNotFoundError"
+    },
+    "FloatingPointError": {
+      "py/type": "builtins.FloatingPointError"
+    },
+    "FutureWarning": {
+      "py/type": "builtins.FutureWarning"
+    },
+    "GeneratorExit": {
+      "py/type": "builtins.GeneratorExit"
+    },
+    "IOError": {
+      "py/type": "builtins.OSError"
+    },
+    "ImportError": {
+      "py/type": "builtins.ImportError"
+    },
+    "ImportWarning": {
+      "py/type": "builtins.ImportWarning"
+    },
+    "IndentationError": {
+      "py/type": "builtins.IndentationError"
+    },
+    "IndexError": {
+      "py/type": "builtins.IndexError"
+    },
+    "InterruptedError": {
+      "py/type": "builtins.InterruptedError"
+    },
+    "IsADirectoryError": {
+      "py/type": "builtins.IsADirectoryError"
+    },
+    "KeyError": {
+      "py/type": "builtins.KeyError"
+    },
+    "KeyboardInterrupt": {
+      "py/type": "builtins.KeyboardInterrupt"
+    },
+    "LookupError": {
+      "py/type": "builtins.LookupError"
+    },
+    "MemoryError": {
+      "py/type": "builtins.MemoryError"
+    },
+    "ModuleNotFoundError": {
+      "py/type": "builtins.ModuleNotFoundError"
+    },
+    "NameError": {
+      "py/type": "builtins.NameError"
+    },
+    "None": null,
+    "NotADirectoryError": {
+      "py/type": "builtins.NotADirectoryError"
+    },
+    "NotImplemented": null,
+    "NotImplementedError": {
+      "py/type": "builtins.NotImplementedError"
+    },
+    "OSError": {
+      "py/type": "builtins.OSError"
+    },
+    "OverflowError": {
+      "py/type": "builtins.OverflowError"
+    },
+    "PendingDeprecationWarning": {
+      "py/type": "builtins.PendingDeprecationWarning"
+    },
+    "PermissionError": {
+      "py/type": "builtins.PermissionError"
+    },
+    "ProcessLookupError": {
+      "py/type": "builtins.ProcessLookupError"
+    },
+    "RecursionError": {
+      "py/type": "builtins.RecursionError"
+    },
+    "ReferenceError": {
+      "py/type": "builtins.ReferenceError"
+    },
+    "ResourceWarning": {
+      "py/type": "builtins.ResourceWarning"
+    },
+    "RuntimeError": {
+      "py/type": "builtins.RuntimeError"
+    },
+    "RuntimeWarning": {
+      "py/type": "builtins.RuntimeWarning"
+    },
+    "StopAsyncIteration": {
+      "py/type": "builtins.StopAsyncIteration"
+    },
+    "StopIteration": {
+      "py/type": "builtins.StopIteration"
+    },
+    "SyntaxError": {
+      "py/type": "builtins.SyntaxError"
+    },
+    "SyntaxWarning": {
+      "py/type": "builtins.SyntaxWarning"
+    },
+    "SystemError": {
+      "py/type": "builtins.SystemError"
+    },
+    "SystemExit": {
+      "py/type": "builtins.SystemExit"
+    },
+    "TabError": {
+      "py/type": "builtins.TabError"
+    },
+    "TimeoutError": {
+      "py/type": "builtins.TimeoutError"
+    },
+    "True": true,
+    "TypeError": {
+      "py/type": "builtins.TypeError"
+    },
+    "UnboundLocalError": {
+      "py/type": "builtins.UnboundLocalError"
+    },
+    "UnicodeDecodeError": {
+      "py/type": "builtins.UnicodeDecodeError"
+    },
+    "UnicodeEncodeError": {
+      "py/type": "builtins.UnicodeEncodeError"
+    },
+    "UnicodeError": {
+      "py/type": "builtins.UnicodeError"
+    },
+    "UnicodeTranslateError": {
+      "py/type": "builtins.UnicodeTranslateError"
+    },
+    "UnicodeWarning": {
+      "py/type": "builtins.UnicodeWarning"
+    },
+    "UserWarning": {
+      "py/type": "builtins.UserWarning"
+    },
+    "ValueError": {
+      "py/type": "builtins.ValueError"
+    },
+    "Warning": {
+      "py/type": "builtins.Warning"
+    },
+    "ZeroDivisionError": {
+      "py/type": "builtins.ZeroDivisionError"
+    },
+    "__build_class__": null,
+    "__debug__": true,
+    "__doc__": "Built-in functions, exceptions, and other objects.\n\nNoteworthy: None is the `nil' object; Ellipsis represents `...' in slices.",
+    "__import__": null,
+    "__loader__": {
+      "py/type": "_frozen_importlib.BuiltinImporter"
+    },
+    "__name__": "builtins",
+    "__package__": "",
+    "__spec__": {
+      "_cached": null,
+      "_set_fileattr": false,
+      "loader": {
+        "py/type": "_frozen_importlib.BuiltinImporter"
+      },
+      "loader_state": null,
+      "name": "builtins",
+      "origin": null,
+      "submodule_search_locations": null
+    },
+    "abs": null,
+    "all": null,
+    "any": null,
+    "ascii": null,
+    "bin": null,
+    "bool": {
+      "py/type": "builtins.bool"
+    },
+    "breakpoint": null,
+    "bytearray": {
+      "py/type": "builtins.bytearray"
+    },
+    "bytes": {
+      "py/type": "builtins.bytes"
+    },
+    "callable": null,
+    "chr": null,
+    "classmethod": {
+      "py/type": "builtins.classmethod"
+    },
+    "compile": null,
+    "complex": {
+      "py/type": "builtins.complex"
+    },
+    "copyright": {
+      "_Printer__data": "Copyright (c) 2001-2019 Python Software Foundation.\nAll Rights Reserved.\n\nCopyright (c) 2000 BeOpen.com.\nAll Rights Reserved.\n\nCopyright (c) 1995-2001 Corporation for National Research Initiatives.\nAll Rights Reserved.\n\nCopyright (c) 1991-1995 Stichting Mathematisch Centrum, Amsterdam.\nAll Rights Reserved.",
+      "_Printer__filenames": [],
+      "_Printer__lines": null,
+      "_Printer__name": "copyright"
+    },
+    "credits": {
+      "_Printer__data": "    Thanks to CWI, CNRI, BeOpen.com, Zope Corporation and a cast of thousands\n    for supporting Python development.  See www.python.org for more information.",
+      "_Printer__filenames": [],
+      "_Printer__lines": null,
+      "_Printer__name": "credits"
+    },
+    "delattr": null,
+    "dict": {
+      "py/type": "builtins.dict"
+    },
+    "dir": null,
+    "divmod": null,
+    "enumerate": {
+      "py/type": "builtins.enumerate"
+    },
+    "eval": null,
+    "exec": null,
+    "exit": {
+      "eof": "Ctrl-D (i.e. EOF)",
+      "name": "exit"
+    },
+    "filter": {
+      "py/type": "builtins.filter"
+    },
+    "float": {
+      "py/type": "builtins.float"
+    },
+    "format": null,
+    "frozenset": {
+      "py/type": "builtins.frozenset"
+    },
+    "getattr": null,
+    "globals": null,
+    "hasattr": null,
+    "hash": null,
+    "help": {},
+    "hex": null,
+    "id": null,
+    "input": null,
+    "int": {
+      "py/type": "builtins.int"
+    },
+    "isinstance": null,
+    "issubclass": null,
+    "iter": null,
+    "len": null,
+    "license": {
+      "_Printer__data": "See https://www.python.org/psf/license/",
+      "_Printer__filenames": [
+        "/usr/lib/python3.7/../LICENSE.txt",
+        "/usr/lib/python3.7/../LICENSE",
+        "/usr/lib/python3.7/LICENSE.txt",
+        "/usr/lib/python3.7/LICENSE",
+        "./LICENSE.txt",
+        "./LICENSE"
+      ],
+      "_Printer__lines": null,
+      "_Printer__name": "license"
+    },
+    "list": {
+      "py/type": "builtins.list"
+    },
+    "locals": null,
+    "map": {
+      "py/type": "builtins.map"
+    },
+    "max": null,
+    "memoryview": {
+      "py/type": "builtins.memoryview"
+    },
+    "min": null,
+    "next": null,
+    "object": {
+      "py/type": "builtins.object"
+    },
+    "oct": null,
+    "open": null,
+    "ord": null,
+    "pow": null,
+    "print": null,
+    "property": {
+      "py/type": "builtins.property"
+    },
+    "quit": {
+      "eof": "Ctrl-D (i.e. EOF)",
+      "name": "quit"
+    },
+    "range": {
+      "py/type": "builtins.range"
+    },
+    "repr": null,
+    "reversed": {
+      "py/type": "builtins.reversed"
+    },
+    "round": null,
+    "set": {
+      "py/type": "builtins.set"
+    },
+    "setattr": null,
+    "slice": {
+      "py/type": "builtins.slice"
+    },
+    "sorted": null,
+    "staticmethod": {
+      "py/type": "builtins.staticmethod"
+    },
+    "str": {
+      "py/type": "builtins.str"
+    },
+    "sum": null,
+    "super": {
+      "py/type": "builtins.super"
+    },
+    "tuple": {
+      "py/type": "builtins.tuple"
+    },
+    "type": {
+      "py/type": "builtins.type"
+    },
+    "vars": null,
+    "zip": {
+      "py/type": "builtins.zip"
+    }
+  },
+  "__comment": "",
+  "__dependencies": [
+    "/srv/local/pl/premierlangage/home/Yggdrasil/ComputerScience/python/AP1-1920/drafts/ChristopheCallé/interval.pl",
+    "ComputerScience/python/AP1-1920/drafts/ChristopheCallé/interval.py",
+    "/srv/local/pl/premierlangage/home/Yggdrasil/ComputerScience/python/AP1-1920/templates/generic/generic.pl",
+    "utils/sandboxio.py",
+    "ComputerScience/python/AP1-1920/templates/generic/builder.py",
+    "ComputerScience/python/AP1-1920/templates/generic/grader.py",
+    "ComputerScience/python/AP1-1920/templates/generic/utils/test.py",
+    "ComputerScience/python/AP1-1920/templates/generic/utils/mockinput.py",
+    "ComputerScience/python/AP1-1920/templates/generic/utils/testgroup.html",
+    "ComputerScience/python/AP1-1920/templates/generic/utils/testitem.html"
+  ],
+  "__extends": [
+    {
+      "directory_name": "Yggdrasil",
+      "line": "extends=../../templates/generic/generic.pl\n",
+      "lineno": 1,
+      "path": "ComputerScience/python/AP1-1920/templates/generic/generic.pl"
+    }
+  ],
+  "__format": ".pl",
+  "__rel_path": "/srv/local/pl/premierlangage/home/Yggdrasil/ComputerScience/python/AP1-1920/drafts/ChristopheCallé/interval.pl",
+  "_interval": [
+    "[ 18, 19 [ \\cup ] 21, 26 ]",
+    "(18 <= x < 19) or (21 < x <= 26)"
+  ],
+  "before": "import interval\n\n_interval = interval.makeinterval()\nlatex = _interval[0]\nsolution = _interval[1]",
+  "editor": {
+    "cid": "4460f0ed-daf5-46d5-ac33-3bd247922a38",
+    "code": "# Saisissez votre code ici, et cliquez sur le bouton\n# de validation quand vous avez terminé\n",
+    "language": "python",
+    "selector": "c-code-editor"
+  },
+  "form": "{{editor|component}}",
+  "grader": "from itertools import permutations\n\nbegin_test_group(\"Groupe de tests pour tester les tests\")\nfor x in range(5):\n    set_inputs([x])\n    run()\n    if eval(pl_context[\"solution\"], {\"x\":x}):\n        assert_output(\"Vrai\\n\")\n    else:\n        assert_output(\"Faux\\n\")\n    assert_no_global_change()\nend_test_group()\n\n",
+  "interval": "<module 'interval' from '/home/student/interval.py'>",
+  "latex": "[ 18, 19 [ \\cup ] 21, 26 ]",
+  "seed": 58,
+  "solution": "(18 <= x < 19) or (21 < x <= 26)",
+  "text": "Ecrivez un programme qui prend en entrée un entier et affiche \"Vrai\" si l'entier est dans l'interval $%{{ latex }}%$ et \"Faux\" sinon.",
+  "title": "Intervales test_reload"
+}

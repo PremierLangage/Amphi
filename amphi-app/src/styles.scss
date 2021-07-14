@@ -1,0 +1,185 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$amphi-app-primary: mat-palette($mat-deep-purple, A100, A200);
+$amphi-app-accent: mat-palette($mat-teal, A200, A100, A700);
+
+// The warn palette is optional (defaults to red).
+$amphi-app-warn: mat-palette($mat-pink, A400);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$amphi-app-theme: mat-light-theme((color: (primary: $amphi-app-primary,
+  accent: $amphi-app-accent,
+  warn: $amphi-app-warn,
+)));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($amphi-app-theme);
+
+// FONTS & COLORS
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap');
+
+%title-font {
+  font-family: "Raleway", sans-serif;
+}
+
+%sans {
+  font-family: "MontSerrat", sans-serif;
+  font-weight: 600;
+}
+
+%bolder {
+  font-family: "MontSerrat", sans-serif;
+  font-weight: 800;
+}
+
+%light {
+  font-family: "Poppins", sans-serif;
+}
+
+$primary-color: #b388ff;
+$accent-color: #64ffda;
+$warn-color: #f50057;
+$fake-white: rgb(225, 225, 250);
+$fake-black: rgb(50, 50, 60);
+
+// GLOBAL RULES
+html,
+body {
+  @extend %light;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  @extend %title-font;
+}
+
+body {
+  color: white;
+  background-color: $fake-black;
+}
+
+div {
+  box-sizing: border-box;
+}
+
+button {
+  transition: .4s;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+// UTILS
+.border {
+  border: solid $accent-color 2px;
+}
+
+.line {
+  width: 100%;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  @extend .flex;
+  flex-direction: column;
+}
+
+.spacer {
+  flex-grow: 1;
+}
+
+.center {
+  @extend .flex;
+  align-items: center; // horizontal
+  justify-content: center; // vertical
+}
+
+.vertical-center {
+  @extend .flex-column;
+  justify-content: center;
+}
+
+.invisible {
+  pointer-events: none;
+  opacity: 0 !important;
+}
+
+.hidden {
+  display: none;
+}
+
+.white {
+  color: white !important;
+}
+
+// MATERIAL FIX >:(
+
+:host ::ng-deep {
+  .mat-button-wrapper {
+    padding: 0 !important; // should not exist !
+    height: 24px; // should not exist !
+  }
+
+  .mat-button-disabled {
+    cursor: not-allowed !important; // should not exist !
+  }
+
+  .mat-tab-label {
+    padding: 0 10px;
+    min-width: 0;
+  }
+
+  .mat-tab-body-wrapper {
+    width: 100%;
+    transition: .1s;
+  }
+
+  .mat-tab-nav-bar,
+  .mat-tab-header {
+    border-bottom: 1px solid rgba($color: $fake-white, $alpha: .3);
+  }
+
+  .mat-tab-label:focus mat-icon,
+  .mat-tab-label-active mat-icon {
+    @extend .white;
+  }
+
+  .mat-tab-label-active {
+    opacity: 1;
+  }
+
+  .mat-tab-body-content {
+    height: inherit;
+  }
+
+  .tooltip, .impossible-action, .mat-tooltip {
+    color: red;
+    background-color: rgba($color: white, $alpha: .3);
+  }
+}

@@ -1,0 +1,27 @@
+@import "../interface.component";
+
+.grid-container {
+  height: 100%;
+  display: grid;
+  overflow: hidden;
+  grid-template-columns: 1fr;
+  grid-template-rows: .1fr 2.4fr .5fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "top-bar"
+    "current"
+    "amphi-title";
+}
+
+.top-bar  current-time {
+    transition: 1s;
+}
+
+.amphi-title {
+  grid-area: amphi-title;
+}
+
+.locked {
+  position: absolute;
+  transform: translateY(100%) scale(75%);
+}

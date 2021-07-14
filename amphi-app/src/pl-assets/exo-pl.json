@@ -1,0 +1,37 @@
+{
+  "__format": ".pl",
+  "__rel_path": "/srv/local/pl/premierlangage/home/Yggdrasil/ComputerScience/python/AP1-1920/drafts/ChristopheCallé/interval.pl",
+  "__comment": "",
+  "__dependencies": [
+    "/srv/local/pl/premierlangage/home/Yggdrasil/ComputerScience/python/AP1-1920/drafts/ChristopheCallé/interval.pl",
+    "ComputerScience/python/AP1-1920/drafts/ChristopheCallé/interval.py",
+    "/srv/local/pl/premierlangage/home/Yggdrasil/ComputerScience/python/AP1-1920/templates/generic/generic.pl",
+    "utils/sandboxio.py",
+    "ComputerScience/python/AP1-1920/templates/generic/builder.py",
+    "ComputerScience/python/AP1-1920/templates/generic/grader.py",
+    "ComputerScience/python/AP1-1920/templates/generic/utils/test.py",
+    "ComputerScience/python/AP1-1920/templates/generic/utils/mockinput.py",
+    "ComputerScience/python/AP1-1920/templates/generic/utils/testgroup.html",
+    "ComputerScience/python/AP1-1920/templates/generic/utils/testitem.html"
+  ],
+  "__extends": [
+    {
+      "path": "ComputerScience/python/AP1-1920/templates/generic/generic.pl",
+      "line": "extends=../../templates/generic/generic.pl\n",
+      "lineno": 1,
+      "directory_name": "Yggdrasil"
+    }
+  ],
+  "title": "Intervales test_reload",
+  "text": "Ecrivez un programme qui prend en entrée un entier et affiche \"Vrai\" si l'entier est dans l'interval $%{{ latex }}%$ et \"Faux\" sinon.",
+  "before": "import interval\n\n_interval = interval.makeinterval()\nlatex = _interval[0]\nsolution = _interval[1]",
+  "grader": "from itertools import permutations\n\nbegin_test_group(\"Groupe de tests pour tester les tests\")\nfor x in range(5):\n    set_inputs([x])\n    run()\n    if eval(pl_context[\"solution\"], {\"x\":x}):\n        assert_output(\"Vrai\\n\")\n    else:\n        assert_output(\"Faux\\n\")\n    assert_no_global_change()\nend_test_group()\n\n",
+  "editor": {
+    "cid": "4460f0ed-daf5-46d5-ac33-3bd247922a38",
+    "selector": "c-code-editor",
+    "language": "python",
+    "code": "# Saisissez votre code ici, et cliquez sur le bouton\n# de validation quand vous avez terminé\n"
+  },
+  "form": "{{editor|component}}",
+  "seed": 58
+}

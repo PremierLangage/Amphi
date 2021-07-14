@@ -1,0 +1,11 @@
+<ng-container *ngIf="withTxt; then stroked; else icon"></ng-container>
+
+<ng-template #icon>
+  <button class="exit" mat-icon-button color="warn" (click)="openDialog()">
+    <mat-icon>power_settings_new</mat-icon>
+  </button>
+</ng-template>
+
+<ng-template #stroked>
+  <button mat-stroked-button color="accent" (click)="openDialog()"> Fermer l'activité </button>
+</ng-template>
