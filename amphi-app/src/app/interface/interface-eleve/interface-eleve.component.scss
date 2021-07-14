@@ -13,15 +13,8 @@
     "amphi-title";
 }
 
-.top-bar {
-  @extend .flex;
-  grid-area: top-bar;
-  padding: 1.5%;
-  min-height: calc($platon-logo-size + 1.5%);
-
-  current-time {
+.top-bar  current-time {
     transition: 1s;
-  }
 }
 
 .amphi-title {

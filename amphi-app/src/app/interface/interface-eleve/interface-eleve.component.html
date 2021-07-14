@@ -35,7 +35,7 @@
           <div class="spacer"></div>
 
           <button mat-fab class="toggle-focus inverted" [disabled]="forcedFocusMode"
-            [ngClass]="{'warn': forcedFocusMode}" (click)="toggleFocusMode()" matTooltip="Mode Focus">
+            [ngClass]="{'warn': forcedFocusMode}" (click)="toggleFocusMode()" [matTooltip]="forcedFocusMode ? 'Le mode Focus est imposé pour tous.' : ((focusMode ? 'Désactiver le' : 'Passer en') + ' mode Focus')" matTooltipClass="tooltip">
             <mat-icon>{{ focusMode ? 'visibility_off' : 'visibility' }}</mat-icon>
             <ng-container *ngIf="forcedFocusMode">
               <mat-icon class="locked"> lock </mat-icon>
