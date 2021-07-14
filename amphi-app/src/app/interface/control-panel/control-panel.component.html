@@ -1,0 +1,52 @@
+<div id="control-panel" [ngClass]="{'hide-panel': hidden}">
+  <div class="title-bar" (click)="toggleHidden()">
+    <div class="spacer"></div>
+    <mat-icon class="hide-arrow" [ngClass]="{'flip-arrow': hidden}">
+      keyboard_arrow_down
+    </mat-icon>
+  </div>
+
+  <div class="panel">
+    <mat-tab-group [selectedIndex]="3">
+
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon>chat</mat-icon>
+        </ng-template>
+        <h1 class="white"> Conversation </h1>
+      </mat-tab>
+
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon>people</mat-icon>
+        </ng-template>
+        <h1 class="white"> Participants </h1>
+      </mat-tab>
+
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon class="home">home</mat-icon>
+        </ng-template>
+        <h1>Bonjour, M. <span class="white">{{ name }}</span>.</h1>
+      </mat-tab>
+
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon>play_circle_outline</mat-icon>
+        </ng-template>
+        <h1>Vos<span class="white"> exercices </span></h1>
+        <div *ngFor="let exo of exerciceList">
+          <platon-exercice [exercice]=exo></platon-exercice>
+        </div>
+      </mat-tab>
+
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon>settings</mat-icon>
+        </ng-template>
+        <h1 class="white"> Paramètres </h1>
+      </mat-tab>
+
+    </mat-tab-group>
+  </div>
+</div>

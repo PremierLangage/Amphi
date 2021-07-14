@@ -14,6 +14,7 @@ import { AmphiTitleComponent } from './interface/amphi-title/amphi-title.compone
 import { ExitDialogComponent } from './interface/exit-button/exit-dialog/exit-dialog.component';
 import { CurrentTimeComponent } from './interface/current-time/current-time.component';
 import { ProgressBarComponent } from './interface/progress-bar/progress-bar.component';
+import { ControlPanelComponent } from './interface/control-panel/control-panel.component';
 import { InterfaceProfComponent } from './interface/interface-prof/interface-prof.component';
 import { InterfaceEleveComponent } from './interface/interface-eleve/interface-eleve.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -42,6 +43,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     CurrentTimeComponent,
     InterfaceProfComponent,
     InterfaceEleveComponent,
+    ControlPanelComponent,
   ],
   imports: [
     BrowserAnimationsModule,
